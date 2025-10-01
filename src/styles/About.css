@@ -1,0 +1,57 @@
+.about-us-page .section-title {
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+.about-us-page .section-title::after {
+  margin: 14px 0 0;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(12, 18, 20, 0.1);
+}
+
+.mission-vision-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.mission-vision-grid .card {
+  padding: 28px;
+  border-left: 4px solid var(--accent);
+}
+
+.mission-vision-grid h2 {
+  margin-top: 0;
+  color: var(--accent-600);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mission-vision-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-us-page .section-title {
+    text-align: center;
+  }
+
+  .about-us-page .section-title::after {
+    margin: 14px auto 0;
+  }
+}

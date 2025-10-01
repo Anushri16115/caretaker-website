@@ -1,0 +1,1337 @@
+/* Healthcare-themed base styles for Abhiruchi Caretaker */
+:root{
+  --bg:#f7fbfd;
+  --card:#ffffff;
+  --muted:#6b7280;
+  --text:#0f172a;
+  --accent:#0ea5a4; /* teal */
+  --accent-600:#059e99;
+  --accent-100:#e6f7f6;
+  --danger:#ef4444;
+  --radius:10px;
+  --container-width:1100px;
+  --topbar-h:36px;
+  --header-h:72px;
+}
+
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{
+  margin:0;
+  font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+  width:100%;
+}
+
+.container{max-width:var(--container-width);margin:0 auto;padding:24px}
+
+/* Header */
+/* Top contact bar (orange) */
+.topbar{background:#e58a4e;color:#fff;min-height:var(--topbar-h)}
+.topbar-inner{display:flex;align-items:center;justify-content:space-between;padding:0 24px;font-size:0.9rem;min-height:var(--topbar-h)}
+.topbar a{color:#fff;text-decoration:none}
+.topbar a:hover{text-decoration:underline}
+.topbar-left{display:flex;align-items:center;gap:10px}
+.topbar-sep{opacity:0.7}
+.topbar-right{display:flex;align-items:center;gap:10px}
+.follow-label{opacity:0.9;margin-right:4px}
+.socials{display:flex;align-items:center;gap:8px}
+.socials a{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,0.25);font-size:0.75rem}
+
+/* Main header (white bar full-width) */
+.app-header{position:sticky;top:0;z-index:80;width:100%;background:#fff;border-bottom:1px solid rgba(15,23,42,0.06);box-shadow:0 6px 18px rgba(12,18,20,0.04)}
+/* header-inner provides the centered max-width layout while header background is full-bleed */
+.header-inner {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;  /* Space between logo and right group */
+  flex-wrap: nowrap; /* keep everything on one line */
+  padding: 0 24px;
+  gap: 24px; /* spacing between groups */
+  min-height: var(--header-h);
+}
+.app-header .header-inner{background:transparent;border:0;box-shadow:none}
+.app-header .container{padding: 15px 0;display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:0.95rem;}
+.brand{font-weight:800;color:var(--accent-600);font-size:1.125rem;text-decoration:none;padding-left:4px}
+.logo-wrap{display:flex;align-items:center;min-width:180px}
+.logo-mark{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent-600),#0cc5bf);color:white;font-weight:800;margin-right:10px;flex:0 0 44px}
+.brand-text{font-size:1.05rem;color:var(--accent-600)}
+.right-group{display:flex;align-items:center;gap:18px;margin-left:auto}
+.app-header nav a{margin-left:14px;color:var(--text);text-decoration:none;font-weight:600}
+.app-header nav a:hover{color:var(--accent-600)}
+
+/* Updated Header and Hero Alignment */
+
+/* Header: full width, flex container with proper spacing */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Ensure logo stays left, nav items are right aligned */
+.header .logo {
+  flex-shrink: 0;
+}
+
+.header .nav-links {
+  display: flex;
+  gap: 20px; /* Adjust gap as necessary */
+  align-items: center;
+}
+
+/* Hero Section: center content, full-bleed background image */
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Optional: Hero content wrapper for finer alignment if needed */
+.hero-content {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Media query for larger screens to adjust hero layout */
+@media (min-width: 1024px) {
+  .hero-section {
+    padding: 60px 40px;
+  }
+  .header {
+    padding: 15px 40px;
+  }
+}
+
+/* Header Styles: Align content in one line with logo on left and nav links on right */
+.header {
+  display: none;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.header .logo {
+  /* Ensure logo stays on the left */
+  flex-shrink: 0;
+}
+
+.header .nav-links {
+  display: flex;
+  gap: 30px; /* Adjust gap between nav links */
+  align-items: center;
+}
+
+/* Nav dropdowns */
+.main-nav {
+  display: flex;
+  gap: 16px; /* spacing between nav links */
+  margin-right: 0; /* Keep nav with CTAs on the right */
+}
+.main-nav.centered{flex:1;justify-content:center}
+.main-nav a{color:#0f172a;text-decoration:none;font-weight:700;padding:12px 10px;border-radius:8px}
+.main-nav a:hover{background:rgba(14,165,164,0.06)}
+
+/* Hamburger (mobile only) */
+.hamburger{display:none;flex-direction:column;gap:4px;background:transparent;border:0;padding:8px;margin-left:auto}
+.hamburger span{display:block;width:22px;height:2px;background:#0f172a;border-radius:2px}
+.nav-item{position:relative;list-style:none}
+/* remove default disclosure marker for details/summary */
+summary::-webkit-details-marker{display:none}
+.nav-summary{list-style:none;cursor:pointer;padding:12px 18px;border-radius:10px;font-weight:800;background:transparent;border:0;letter-spacing:0.2px}
+.nav-summary:hover{background:rgba(14,165,164,0.06)}
+.nav-item[open] > .nav-summary{background:rgba(14,165,164,0.08)}
+/* dropdown initially hidden, positioned directly under the nav label */
+.dropdown{position:absolute;left:0;top:calc(100% + 8px);background:var(--card);min-width:360px;border-radius:10px;box-shadow:0 10px 30px rgba(12,18,20,0.08);padding:12px;z-index:60;opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity 160ms ease, transform 160ms ease, visibility 160ms}
+/* reveal dropdown on hover or keyboard focus */
+.nav-item:hover > .dropdown,
+.nav-item:focus-within > .dropdown,
+.nav-item[open] > .dropdown {
+  opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto
+}
+.dropdown ul{margin:0;padding:6px 0;list-style:none;max-height:360px;overflow:auto}
+.dropdown li{padding:8px 10px;border-radius:6px}
+.dropdown li a{color:var(--text);text-decoration:none;font-weight:600}
+.dropdown li:hover{background:var(--accent-100)}
+
+/* Make dropdowns column layout on narrow screens */
+@media (max-width:900px){
+  .main-nav{display:none}
+  .app-header .container{justify-content:space-between}
+  .hamburger{display:flex}
+}
+
+/* Header CTAs */
+.header-cta{margin-left:24px;display:flex;align-items:center;gap:18px}
+.header-cta .muted{color:var(--muted);text-decoration:none;font-weight:700;padding:6px 8px;border-radius:6px}
+.header-cta .muted:hover{color:var(--text);background:rgba(15,23,42,0.03)}
+.cta-book{padding:10px 14px;border-radius:8px;background:var(--accent-600);color:#fff;text-decoration:none;font-weight:700}
+.pill-btn{border-radius:999px;padding:10px 18px;background:linear-gradient(135deg,#f0a56b,#e58a4e)}
+.pill-btn:hover{filter:brightness(0.98)}
+.cta-book:hover{background:var(--accent)}
+
+@media (max-width:900px){
+  .header-cta{display:none}
+}
+
+/* Mobile nav drawer */
+.mobile-nav{position:fixed;left:0;right:0;top:calc(var(--topbar-h) + var(--header-h));background:#fff;border-bottom:1px solid rgba(15,23,42,0.08);box-shadow:0 10px 24px rgba(12,18,20,0.06);transform:translateY(-16px);opacity:0;visibility:hidden;transition:opacity .2s ease, transform .2s ease, visibility .2s ease;z-index:75;padding:12px 18px;display:flex;flex-direction:column;gap:8px}
+.mobile-nav a{color:#0f172a;text-decoration:none;font-weight:700;padding:10px 6px;border-radius:8px}
+.mobile-nav a:hover{background:rgba(14,165,164,0.06)}
+.mobile-nav.open{opacity:1;visibility:visible;transform:translateY(0)}
+
+/* Footer */
+.app-footer{padding:18px 0;margin-top:40px;background:transparent;border-top:1px solid rgba(15,23,42,0.04)}
+.app-footer .container{display:flex;justify-content:center;color:var(--muted);font-size:0.95rem}
+
+/* Main layout */
+.app main{padding:28px 0}
+
+/* Hero */
+/* Hero: full-bleed background handled inline; ensure layout sizing */
+.hero {
+  width: 100%;
+  min-height: calc(100vh - var(--topbar-h) - var(--header-h));
+  display: block;
+}
+
+.hero-inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 28px;
+  margin: 0;
+  width: 100%;
+  min-height: inherit;
+  max-width: 100%;
+  padding: 56px 40px;
+}
+
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 560px;
+  color: var(--text);
+  padding: 24px 0;
+}
+.hero-content h1{font-size:2.6rem;margin:0;color:var(--text)}
+.hero-card { width: 420px; border-radius: 14px }
+
+.hero-card.hero-card-left{order:0;width:460px;max-width:46%;margin-right:20px}
+.hero-card.hero-card-right { margin-left: auto; }
+.hero-card h3{margin-top:0}
+
+@media (max-width:1100px){
+  .hero-inner{flex-direction:column}
+  .hero-card{width:100%}
+  .hero-content{max-width:100%;padding:24px 0}
+}
+
+/* Lower hero content on desktop */
+@media (min-width: 1101px){
+  .hero-content{padding-top: 140px}
+}
+
+/* Hero Section styling for full layout on desktop */
+@media (min-width: 1024px) {
+  .hero-section {
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+/* Cards */
+.card{background:var(--card);border-radius:var(--radius);box-shadow:0 6px 18px rgba(12,18,20,0.06);padding:20px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;padding:10px 14px;border-radius:8px;font-weight:600;cursor:pointer}
+.btn-primary{background:var(--accent);color:white}
+.btn-outline{background:transparent;border:1px solid rgba(14,165,164,0.12);color:var(--accent-600)}
+.btn-danger{background:var(--danger);color:white}
+
+/* Forms */
+.form-field{display:flex;flex-direction:column;margin-bottom:12px}
+.form-field label{font-size:0.95rem;margin-bottom:6px;color:var(--muted)}
+.form-field input,.form-field select, .form-field textarea{padding:10px;border-radius:8px;border:1px solid #e6eef0;background:#fff}
+
+/* Notifications */
+.notification-bell{background:transparent;border:0;font-size:1.15rem;cursor:pointer}
+
+/* Responsive */
+@media (max-width:900px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .app-header .container{padding:8px}
+  .container{padding:16px}
+}
+@media (max-width:600px){
+  .grid{grid-template-columns:1fr}
+  .app-header nav{display:none}
+}
+
+/* Full-bleed container on wide screens */
+.container.full-bleed{max-width:100%;padding-left:40px;padding-right:40px}
+@media (max-width:1200px){
+  .container.full-bleed{padding-left:24px;padding-right:24px}
+}
+
+/* Utilities */
+.muted{color:var(--muted)}
+.text-center{text-align:center}
+.pill{display:inline-block;padding:6px 10px;background:var(--accent-100);color:var(--accent-600);border-radius:999px;font-weight:600}
+
+/* ---- Home sections below hero ---- */
+.section{padding:96px 0}
+.section-title{font-size:3rem;margin:0 0 28px}
+.section-title.center{text-align:center}
+.accent{color:var(--accent-600)}
+
+/* Centers chips */
+.center-chips{display:flex;flex-wrap:wrap;gap:14px;list-style:none;padding:0;margin:10px 0 0}
+.chip{display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid rgba(15,23,42,0.08);box-shadow:0 6px 14px rgba(12,18,20,0.04);padding:10px 14px;border-radius:999px;font-weight:700}
+.chip-icon{width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;background:var(--accent-100);color:var(--accent-600)}
+
+/* Recover features grid */
+.feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.feature-card{background:#fff;border:1px solid rgba(15,23,42,0.08);border-radius:16px;padding:18px;display:flex;align-items:center;gap:14px;box-shadow:0 6px 14px rgba(12,18,20,0.04)}
+.feature-icon{font-size:1.6rem;line-height:1}
+.feature-title{font-weight:700}
+
+/* Why choose us */
+.why-grid{display:grid;grid-template-columns:1fr 520px 1fr;gap:24px;align-items:center}
+.why-col p{margin-top:0;color:#475569}
+.why-image img{width:100%;height:auto;border-radius:16px;display:block;box-shadow:0 10px 24px rgba(12,18,20,0.08)}
+
+@media (max-width:1100px){
+  .feature-grid{grid-template-columns:repeat(2,1fr)}
+  .why-grid{grid-template-columns:1fr;gap:16px}
+}
+@media (max-width:640px){
+  .feature-grid{grid-template-columns:1fr}
+}
+
+/* Admin layout */
+  .admin-layout{display:grid;grid-template-columns:220px 1fr;gap:20px;padding:20px}
+  .admin-layout aside{background:var(--card);padding:16px;border-radius:10px;height:fit-content}
+  /* Basic scaffold overrides (kept minimal) */
+  /* small reset for container and header/footer spacing already handled above */
+  
+  /* ==== Home: New Sections ==== */
+  :root{
+    --brand-warm:#e58a4e; /* warm accent already used in topbar */
+  }
+
+  /* Testimonials */
+  .testimonials-wrap{display:grid;grid-template-columns:1fr 520px;gap:24px;align-items:center}
+  .testimonials-heading h2{font-size:4.8rem;line-height:0.95;margin:0;color:var(--brand-warm);letter-spacing:0.6px}
+  .testimonials-heading h2 span{display:block}
+  .testimonials-cards{display:flex;flex-direction:column;gap:22px}
+  .testimonial-card{display:flex;gap:14px;align-items:flex-start}
+  .tc-avatar img{width:72px;height:72px;border-radius:50%;display:block;outline:4px solid var(--accent-100)}
+  .tc-text{margin:0 0 10px;font-size:1.15rem}
+  .tc-author{display:flex;gap:8px;align-items:center}
+  .tc-city{color:var(--brand-warm);font-weight:700}
+
+  /* Cities We Serve */
+  .cities-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+  .cities-image-container{display:grid;grid-template-columns:1fr;gap:22px;}
+  .cities-image{position:relative;overflow:hidden;min-height:220px}
+  .cities-image img{width:100%;height:100%;object-fit:cover;display:block;border-radius:14px}
+  .city-chips{position:absolute;left:14px;bottom:14px;display:flex;flex-wrap:wrap;gap:10px;margin:0;padding:10px;background:rgba(255,255,255,0.7);backdrop-filter:blur(6px);border-radius:12px}
+  .cities-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .city-card{display:flex;gap:12px;align-items:flex-start}
+  .city-icon{font-size:2.4rem}
+  .city-title{font-weight:800;font-size:1.35rem}
+  .city-sub{color:var(--brand-warm);font-weight:700;margin:2px 0;font-size:1.1rem}
+
+  /* Safety */
+  .safety-list{display:flex;flex-direction:column;gap:14px}
+  .safety-item{display:flex;gap:14px;align-items:flex-start;background:var(--card);border:1px solid rgba(15,23,42,0.06);border-left:4px solid var(--brand-warm);border-radius:14px;padding:18px}
+  .safety-icon{font-size:2rem}
+  .safety-title{font-weight:800}
+
+  /* Services */
+  .services{background:linear-gradient(180deg, rgba(229,138,78,0.08), rgba(14,165,164,0.06))}
+  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .service-card{display:flex;gap:12px;align-items:flex-start}
+  .service-icon{font-size:2.6rem}
+  .service-title{font-weight:800;font-size:1.35rem}
+
+  /* CTA */
+  .cta-banner{color:#fff}
+  .cta-box{max-width:820px;margin:0 auto;background:rgba(255,255,255,0.14);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.25);padding:26px;border-radius:16px;box-shadow:0 12px 30px rgba(12,18,20,0.25)}
+  .cta-box h2{margin-top:0;margin-bottom:10px;font-size:3rem}
+
+  /* Larger section titles for requested sections */
+  .why .section-title.center,
+  .cities .section-title.center,
+  .safety .section-title.center,
+  .services .section-title.center{font-size:3.8rem}
+
+  /* Decorative underline for centered headings */
+  .section-title.center::after{content:"";display:block;width:140px;height:6px;background:linear-gradient(90deg,var(--brand-warm),var(--accent-600));border-radius:999px;margin:14px auto 0}
+
+  /* Attractive hover for cards */
+  .testimonials .card,
+  .cities .card,
+  .services .card{transition:transform .18s ease, box-shadow .18s ease}
+  .testimonials .card:hover,
+  .cities .card:hover,
+  .services .card:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(12,18,20,0.12)}
+
+  /* Extra padding for key cards */
+  .testimonial-card.card,
+  .city-card.card,
+  .service-card.card{padding:24px}
+
+  /* Home Page Specific Styles */
+.why-image img,
+.cities-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Responsive adjustments for new sections */
+  @media (max-width:1100px){
+    .testimonials-wrap{grid-template-columns:1fr}
+    .cities-grid{grid-template-columns:1fr}
+  }
+  @media (max-width:700px){
+    .testimonials-heading h2{font-size:3.6rem}
+    .why .section-title.center,
+    .cities .section-title.center,
+    .safety .section-title.center,
+    .services .section-title.center{font-size:3rem}
+    .section-title.center::after{width:90px}
+    .cities-cards{grid-template-columns:1fr}
+    .services-grid{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:520px){
+    .services-grid{grid-template-columns:1fr}
+  }
+
+/* Post-Delivery Care Page Styles */
+
+/* Hero Section */
+.hero-section-pdc {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.hero-overlay-pdc {
+  background: linear-gradient(90deg, rgba(45, 23, 42, 0.9) 0%, rgba(45, 23, 42, 0.5) 100%);
+  padding: 80px 0;
+}
+
+.hero-content-pdc {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.breadcrumb-pdc {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 8px;
+}
+
+.hero-text-pdc h1 {
+  font-size: 3.5rem;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.hero-form-pdc {
+  background: var(--card);
+  padding: 24px;
+  border-radius: var(--radius);
+}
+
+.hero-form-pdc h3 {
+  margin-top: 0;
+  color: var(--text);
+}
+
+/* What We Offer Section */
+.offer-grid-pdc {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.offer-card-pdc {
+  padding: 24px;
+}
+
+.offer-card-pdc h3 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: var(--accent-600);
+}
+
+.offer-card-pdc ul {
+  padding-left: 20px;
+  line-height: 1.8;
+}
+
+/* Benefits Section */
+.benefits-section-pdc {
+  background: var(--accent-100);
+}
+
+.benefits-grid-pdc {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  text-align: center;
+}
+
+.benefit-item-pdc {
+  padding: 20px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-content-pdc {
+    grid-template-columns: 1fr;
+  }
+  .offer-grid-pdc {
+    grid-template-columns: 1fr;
+  }
+  .benefits-grid-pdc {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .benefits-grid-pdc {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Day Care Page Styles */
+
+/* Hero Section */
+.hero-section-dc {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.hero-overlay-dc {
+  background: linear-gradient(90deg, rgba(14, 165, 164, 0.8) 0%, rgba(14, 165, 164, 0.4) 100%);
+  padding: 80px 0;
+}
+
+.hero-content-dc {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.breadcrumb-dc {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 8px;
+}
+
+.hero-text-dc h1 {
+  font-size: 3.5rem;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.hero-form-dc {
+  background: var(--card);
+  padding: 24px;
+  border-radius: var(--radius);
+}
+
+.hero-form-dc h3 {
+  margin-top: 0;
+  color: var(--text);
+}
+
+/* Services Included Section */
+.services-grid-dc {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.service-item-dc {
+  padding: 24px;
+}
+
+.service-item-dc h3 {
+  margin-top: 0;
+  color: var(--accent-600);
+}
+
+/* Benefits Section */
+.benefits-section-dc {
+  background: var(--accent-100);
+}
+
+.benefits-grid-dc {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  text-align: center;
+}
+
+.benefit-item-dc {
+  padding: 20px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-content-dc {
+    grid-template-columns: 1fr;
+  }
+  .services-grid-dc {
+    grid-template-columns: 1fr;
+  }
+  .benefits-grid-dc {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .benefits-grid-dc {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Night Care Page Styles */
+
+/* Hero Section */
+.hero-section-nc {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.hero-overlay-nc {
+  background: linear-gradient(90deg, rgba(20, 28, 58, 0.9) 0%, rgba(20, 28, 58, 0.5) 100%);
+  padding: 80px 0;
+}
+
+.hero-content-nc {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.breadcrumb-nc {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 8px;
+}
+
+.hero-text-nc h1 {
+  font-size: 3.5rem;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.hero-form-nc {
+  background: var(--card);
+  padding: 24px;
+  border-radius: var(--radius);
+}
+
+.hero-form-nc h3 {
+  margin-top: 0;
+  color: var(--text);
+}
+
+/* Services Included Section */
+.services-grid-nc {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.service-item-nc {
+  padding: 24px;
+}
+
+.service-item-nc h3 {
+  margin-top: 0;
+  color: var(--accent-600);
+}
+
+/* Benefits Section */
+.benefits-section-nc {
+  background: var(--accent-100);
+}
+
+.benefits-grid-nc {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  text-align: center;
+}
+
+.benefit-item-nc {
+  padding: 20px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-content-nc {
+    grid-template-columns: 1fr;
+  }
+  .services-grid-nc {
+    grid-template-columns: 1fr;
+  }
+  .benefits-grid-nc {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .benefits-grid-nc {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 24x7 Care Page Styles */
+
+/* Hero Section */
+.hero-section-c247 {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.hero-overlay-c247 {
+  background: linear-gradient(90deg, rgba(0, 87, 87, 0.9) 0%, rgba(0, 87, 87, 0.5) 100%);
+  padding: 80px 0;
+}
+
+.hero-content-c247 {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.breadcrumb-c247 {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 8px;
+}
+
+.hero-text-c247 h1 {
+  font-size: 3.5rem;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.hero-form-c247 {
+  background: var(--card);
+  padding: 24px;
+  border-radius: var(--radius);
+}
+
+.hero-form-c247 h3 {
+  margin-top: 0;
+  color: var(--text);
+}
+
+/* Comprehensive Support Section */
+.support-grid-c247 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.support-item-c247 {
+  padding: 24px;
+}
+
+.support-item-c247 h3 {
+  margin-top: 0;
+  color: var(--accent-600);
+}
+
+/* Benefits Section */
+.benefits-section-c247 {
+  background: var(--accent-100);
+}
+
+.benefits-grid-c247 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  text-align: center;
+}
+
+.benefit-item-c247 {
+  padding: 20px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-content-c247 {
+    grid-template-columns: 1fr;
+  }
+  .support-grid-c247 {
+    grid-template-columns: 1fr;
+  }
+  .benefits-grid-c247 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .benefits-grid-c247 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Home ICU Page Styles */
+
+/* Hero Section */
+.hero-section-hicu {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.hero-overlay-hicu {
+  background: linear-gradient(90deg, rgba(0, 60, 113, 0.9) 0%, rgba(0, 60, 113, 0.5) 100%);
+  padding: 80px 0;
+}
+
+.hero-content-hicu {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.breadcrumb-hicu {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 8px;
+}
+
+.hero-text-hicu h1 {
+  font-size: 3.5rem;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.hero-form-hicu {
+  background: var(--card);
+  padding: 24px;
+  border-radius: var(--radius);
+}
+
+.hero-form-hicu h3 {
+  margin-top: 0;
+  color: var(--text);
+}
+
+/* Critical Care Services Section */
+.care-grid-hicu {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.care-item-hicu {
+  padding: 24px;
+}
+
+.care-item-hicu h3 {
+  margin-top: 0;
+  color: var(--accent-600);
+}
+
+/* Benefits Section */
+.benefits-section-hicu {
+  background: var(--accent-100);
+}
+
+.benefits-grid-hicu {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  text-align: center;
+}
+
+.benefit-item-hicu {
+  padding: 20px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-content-hicu {
+    grid-template-columns: 1fr;
+  }
+  .care-grid-hicu {
+    grid-template-columns: 1fr;
+  }
+  .benefits-grid-hicu {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .benefits-grid-hicu {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Physiotherapy Support Page Styles */
+
+/* Hero Section */
+.hero-section-ps {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.hero-overlay-ps {
+  background: linear-gradient(90deg, rgba(0, 100, 100, 0.9) 0%, rgba(0, 100, 100, 0.5) 100%);
+  padding: 80px 0;
+}
+
+.hero-content-ps {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.breadcrumb-ps {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 8px;
+}
+
+.hero-text-ps h1 {
+  font-size: 3.5rem;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.hero-form-ps {
+  background: var(--card);
+  padding: 24px;
+  border-radius: var(--radius);
+}
+
+.hero-form-ps h3 {
+  margin-top: 0;
+  color: var(--text);
+}
+
+/* Our Physiotherapy Services Section */
+.services-grid-ps {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.service-item-ps {
+  padding: 24px;
+}
+
+.service-item-ps h3 {
+  margin-top: 0;
+  color: var(--accent-600);
+}
+
+/* Benefits Section */
+.benefits-section-ps {
+  background: var(--accent-100);
+}
+
+.benefits-grid-ps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  text-align: center;
+}
+
+.benefit-item-ps {
+  padding: 20px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-content-ps {
+    grid-template-columns: 1fr;
+  }
+  .services-grid-ps {
+    grid-template-columns: 1fr;
+  }
+  .benefits-grid-ps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .benefits-grid-ps {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Injection / Drip Care Page Styles */
+
+/* Hero Section */
+.hero-section-idc {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.hero-overlay-idc {
+  background: linear-gradient(90deg, rgba(0, 87, 184, 0.9) 0%, rgba(0, 87, 184, 0.5) 100%);
+  padding: 80px 0;
+}
+
+.hero-content-idc {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.breadcrumb-idc {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 8px;
+}
+
+.hero-text-idc h1 {
+  font-size: 3.5rem;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.hero-form-idc {
+  background: var(--card);
+  padding: 24px;
+  border-radius: var(--radius);
+}
+
+.hero-form-idc h3 {
+  margin-top: 0;
+  color: var(--text);
+}
+
+/* Our Services Section */
+.services-grid-idc {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.service-item-idc {
+  padding: 24px;
+}
+
+.service-item-idc h3 {
+  margin-top: 0;
+  color: var(--accent-600);
+}
+
+/* Benefits Section */
+.benefits-section-idc {
+  background: var(--accent-100);
+}
+
+.benefits-grid-idc {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  text-align: center;
+}
+
+.benefit-item-idc {
+  padding: 20px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-content-idc {
+    grid-template-columns: 1fr;
+  }
+  .services-grid-idc {
+    grid-template-columns: 1fr;
+  }
+  .benefits-grid-idc {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .benefits-grid-idc {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Palliative Care Page Styles */
+
+/* Hero Section */
+.hero-section-pc {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.hero-overlay-pc {
+  background: linear-gradient(90deg, rgba(80, 58, 88, 0.9) 0%, rgba(80, 58, 88, 0.5) 100%);
+  padding: 80px 0;
+}
+
+.hero-content-pc {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.breadcrumb-pc {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 8px;
+}
+
+.hero-text-pc h1 {
+  font-size: 3.5rem;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.hero-form-pc {
+  background: var(--card);
+  padding: 24px;
+  border-radius: var(--radius);
+}
+
+.hero-form-pc h3 {
+  margin-top: 0;
+  color: var(--text);
+}
+
+/* Our Supportive Services Section */
+.services-grid-pc {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.service-item-pc {
+  padding: 24px;
+}
+
+.service-item-pc h3 {
+  margin-top: 0;
+  color: var(--accent-600);
+}
+
+/* Benefits Section */
+.benefits-section-pc {
+  background: var(--accent-100);
+}
+
+.benefits-grid-pc {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  text-align: center;
+}
+
+.benefit-item-pc {
+  padding: 20px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-content-pc {
+    grid-template-columns: 1fr;
+  }
+  .services-grid-pc {
+    grid-template-columns: 1fr;
+  }
+  .benefits-grid-pc {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .benefits-grid-pc {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Hospice Care Page Styles */
+
+/* Hero Section */
+.hero-section-hc {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.hero-overlay-hc {
+  background: linear-gradient(90deg, rgba(45, 55, 72, 0.9) 0%, rgba(45, 55, 72, 0.5) 100%);
+  padding: 80px 0;
+}
+
+.hero-content-hc {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.breadcrumb-hc {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 8px;
+}
+
+.hero-text-hc h1 {
+  font-size: 3.5rem;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.hero-form-hc {
+  background: var(--card);
+  padding: 24px;
+  border-radius: var(--radius);
+}
+
+.hero-form-hc h3 {
+  margin-top: 0;
+  color: var(--text);
+}
+
+/* Our End-of-Life Care Services Section */
+.services-grid-hc {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.service-item-hc {
+  padding: 24px;
+}
+
+.service-item-hc h3 {
+  margin-top: 0;
+  color: var(--accent-600);
+}
+
+/* Benefits Section */
+.benefits-section-hc {
+  background: var(--accent-100);
+}
+
+.benefits-grid-hc {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  text-align: center;
+}
+
+.benefit-item-hc {
+  padding: 20px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-content-hc {
+    grid-template-columns: 1fr;
+  }
+  .services-grid-hc {
+    grid-template-columns: 1fr;
+  }
+  .benefits-grid-hc {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .benefits-grid-hc {
+    grid-template-columns: 1fr;
+  }
+}

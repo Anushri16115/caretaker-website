@@ -1,0 +1,98 @@
+/* Day Care Page Styles */
+
+/* Hero Section */
+.hero-section-dc {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.hero-overlay-dc {
+  background: linear-gradient(90deg, rgba(14, 165, 164, 0.8) 0%, rgba(14, 165, 164, 0.4) 100%);
+  padding: 80px 0;
+}
+
+.hero-content-dc {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.breadcrumb-dc {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 8px;
+}
+
+.hero-text-dc h1 {
+  font-size: 3.5rem;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.hero-form-dc {
+  background: var(--card);
+  padding: 24px;
+  border-radius: var(--radius);
+}
+
+.hero-form-dc h3 {
+  margin-top: 0;
+  color: var(--text);
+}
+
+/* Services Included Section */
+.services-grid-dc {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.service-item-dc {
+  padding: 24px;
+}
+
+.service-item-dc h3 {
+  margin-top: 0;
+  color: var(--accent-600);
+}
+
+/* Benefits Section */
+.benefits-section-dc {
+  background: var(--accent-100);
+}
+
+.benefits-grid-dc {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  text-align: center;
+}
+
+.benefit-item-dc {
+  padding: 20px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-content-dc {
+    grid-template-columns: 1fr;
+  }
+  .services-grid-dc {
+    grid-template-columns: 1fr;
+  }
+  .benefits-grid-dc {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .benefits-grid-dc {
+    grid-template-columns: 1fr;
+  }
+}

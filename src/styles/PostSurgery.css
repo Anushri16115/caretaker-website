@@ -1,0 +1,180 @@
+/* Post-Surgery Recovery Care Page Styles */
+
+/* Hero Section */
+.hero-section-surgery {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.hero-overlay-surgery {
+  background: linear-gradient(90deg, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.6) 50%, rgba(15, 23, 42, 0.1) 100%);
+  padding: 80px 0;
+}
+
+.hero-content-surgery {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 40px;
+  align-items: center;
+}
+
+.breadcrumb-surgery {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 8px;
+}
+
+.hero-text h1 {
+  font-size: 3.5rem;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.reviews-surgery {
+  font-weight: 600;
+  margin: 20px 0;
+}
+
+.badges-surgery {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.badge-surgery {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Hero Form */
+.hero-form-surgery {
+  background: var(--card);
+  padding: 24px;
+  border-radius: var(--radius);
+}
+
+.hero-form-surgery h3 {
+  margin-top: 0;
+  color: var(--text);
+}
+
+.btn-request-callback {
+  width: 100%;
+  padding: 12px;
+  background: var(--brand-warm);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 16px;
+}
+
+.form-terms-surgery {
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-align: center;
+  margin-top: 12px;
+}
+
+/* Key Components Section */
+.key-components-section {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.key-components-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.component-card-surgery {
+  text-align: center;
+  padding: 20px;
+  font-weight: 600;
+}
+
+/* Benefits Section */
+.benefits-section-surgery {
+  background: var(--accent-100);
+}
+
+.benefits-grid-surgery {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+  text-align: center;
+}
+
+.benefit-item-surgery {
+  font-weight: 600;
+}
+
+/* Primary Steps Section */
+.steps-accordion-surgery {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.step-item-surgery {
+  border: 1px solid #e6eef0;
+  border-radius: 10px;
+}
+
+.step-item-surgery summary {
+  padding: 16px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.step-item-surgery summary span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--accent-100);
+  color: var(--accent-600);
+  font-weight: 800;
+}
+
+.step-content-surgery {
+  padding: 0 16px 16px 64px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-content-surgery {
+    grid-template-columns: 1fr;
+  }
+  .key-components-section {
+    grid-template-columns: 1fr;
+  }
+  .key-components-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .benefits-grid-surgery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .benefits-grid-surgery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
