@@ -1,18 +1,15 @@
-const physiotherapyImage = 'https://images.unsplash.com/photo-1584515933487-779824d29309?q=80&w=2070&auto=format&fit=crop';
-
 export default function PhysiotherapySupport() {
   return (
     <div className="physiotherapy-support-page">
       {/* Hero Section */}
       <section
         className="hero-section-ps"
-        style={{ backgroundImage: `url(${physiotherapyImage})` }}
+        style={{ backgroundImage: `url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format=fit=crop')` }}
       >
         <div className="hero-overlay-ps">
           <div className="hero-content-ps container">
             <div className="hero-text-ps">
               <p className="breadcrumb-ps">Home &gt; Services &gt; Physiotherapy Support</p>
-              <h1>Professional Physiotherapy at Your Home</h1>
               <p>
                 Personalized, one-on-one physiotherapy sessions designed to help you regain mobility, manage pain, and improve your quality of life in the comfort of your own home.
               </p>

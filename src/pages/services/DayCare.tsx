@@ -1,4 +1,4 @@
-const dayCareImage = 'https://images.unsplash.com/photo-1544027993-37dbfe43562a?q=80&w=2070&auto=format&fit=crop';
+const dayCareImage = 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop';
 
 export default function DayCare() {
   return (

@@ -1,107 +1,133 @@
-.physio-hero {
-  position: relative;
-  background-size: cover;
-  background-position: center;
-  color: #fff;
-  text-align: center;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: -108px; /* Adjust this value to match your header's height */
-  padding-top: 108px; /* Adjust this value to match your header's height */
+.physiotherapy-page .section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
 }
 
+.physiotherapy-page .center {
+  text-align: center;
+}
+
+.physio-hero {
+  padding: 120px 0 60px;
+  background: linear-gradient(45deg, #e0c3fc 0%, #8ec5fc 100%);
+  text-align: center;
+}
+
+.physio-hero .section-title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.physio-hero .section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 4px;
+  background-color: var(--primary);
+}
+
+
 .hero-subtitle {
-  font-size: 1.2rem;
-  margin: 16px 0 24px;
-  opacity: 0.9;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 1.5rem auto;
 }
 
 .hero-stats {
   display: flex;
   justify-content: center;
-  gap: 16px;
-  margin-top: 24px;
+  gap: 1rem;
+  margin-top: 2rem;
 }
 
 .hero-stats .pill {
-  background-color: rgba(255, 255, 255, 0.15);
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: white;
+  border: 1px solid var(--border);
+  padding: 0.5rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
 .intro-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
   align-items: center;
 }
 
-.intro-image img {
-  width: 100%;
-  border-radius: 16px;
-  box-shadow: 0 12px 30px rgba(12, 18, 20, 0.1);
-}
-
 .services-offered-section {
-  background-color: var(--accent-100);
+  background-color: var(--background-alt);
 }
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
 }
 
 .service-card {
-  padding: 24px;
+  background: var(--surface);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
   text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .service-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(12, 18, 20, 0.1);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  border-color: var(--primary);
 }
 
 .service-icon {
-  font-size: 3rem;
-  margin-bottom: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--primary-light);
+  color: var(--primary);
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
-.treatment-approach {
-  background-color: #f8fafc;
+.service-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
 }
 
 .approach-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 3rem;
   align-items: center;
 }
 
 .approach-image img {
   width: 100%;
-  border-radius: 16px;
-  box-shadow: 0 12px 30px rgba(12, 18, 20, 0.1);
-}
-
-.approach-steps {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+  border-radius: 12px;
 }
 
 .step {
   display: flex;
-  gap: 16px;
+  gap: 1.5rem;
   align-items: flex-start;
+  margin-bottom: 1.5rem;
 }
 
 .step-number {
-  background: var(--accent);
-  color: white;
+  background-color: var(--primary-light);
+  color: var(--primary);
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -109,108 +135,56 @@
   align-items: center;
   justify-content: center;
   font-weight: bold;
+  font-size: 1.2rem;
   flex-shrink: 0;
 }
 
 .step-content h4 {
-  margin: 0 0 8px;
-  color: var(--accent-600);
-}
-
-.step-content p {
-  margin: 0;
-  color: var(--muted);
-}
-
-.benefits-section {
-  text-align: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
 }
 
 .benefits-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  margin-top: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
 }
 
 .benefit-item {
+  background: var(--surface);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
   text-align: center;
-  padding: 24px;
 }
 
 .benefit-icon {
-  font-size: 3rem;
-  margin-bottom: 16px;
-}
-
-.benefit-item h4 {
-  margin: 0 0 8px;
-  color: var(--accent-600);
-}
-
-.benefit-item p {
-  margin: 0;
-  color: var(--muted);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
 }
 
 .cta-section {
-  background: linear-gradient(135deg, var(--accent), var(--accent-600));
+  background-color: var(--primary);
   color: white;
   text-align: center;
+  border-radius: 12px;
+  padding: 3rem;
 }
 
 .cta-content h2 {
-  margin: 0 0 16px;
-  font-size: 2.5rem;
-}
-
-.cta-content p {
-  margin: 0 0 24px;
-  font-size: 1.1rem;
-  opacity: 0.9;
+  font-size: 2rem;
 }
 
 .cta-content .btn {
   background: white;
-  color: var(--accent-600);
-  padding: 12px 32px;
-  font-size: 1.1rem;
-  font-weight: bold;
+  color: var(--primary);
+  margin-top: 1rem;
 }
 
-.cta-content .btn:hover {
-  background: #f8fafc;
-}
-
-/* Responsive */
 @media (max-width: 900px) {
   .intro-grid,
   .approach-grid {
     grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
-  .services-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .benefits-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .hero-stats {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
-@media (max-width: 600px) {
-  .services-grid,
-  .benefits-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .cta-content h2 {
-    font-size: 2rem;
   }
 }

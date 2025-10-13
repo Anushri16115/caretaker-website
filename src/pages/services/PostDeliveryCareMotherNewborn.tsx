@@ -1,12 +1,10 @@
-const postDeliveryImage = 'https://images.unsplash.com/photo-1515688594390-b649fe4d9b5b?q=80&w=2070&auto=format&fit=crop';
-
 export default function PostDeliveryCareMotherNewborn() {
   return (
     <div className="post-delivery-care-page">
       {/* Hero Section */}
       <section
         className="hero-section-pdc"
-        style={{ backgroundImage: `url(${postDeliveryImage})` }}
+        style={{ backgroundImage: `url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format=fit=crop')` }}
       >
         <div className="hero-overlay-pdc">
           <div className="hero-content-pdc container">

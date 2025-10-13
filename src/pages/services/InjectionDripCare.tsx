@@ -1,4 +1,4 @@
-const injectionDripCareImage = 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop';
+const injectionDripCareImageUrl = 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop';
 
 export default function InjectionDripCare() {
   return (
@@ -6,7 +6,7 @@ export default function InjectionDripCare() {
       {/* Hero Section */}
       <section
         className="hero-section-idc"
-        style={{ backgroundImage: `url(${injectionDripCareImage})` }}
+        style={{ backgroundImage: `url(${injectionDripCareImageUrl})` }}
       >
         <div className="hero-overlay-idc">
           <div className="hero-content-idc container">

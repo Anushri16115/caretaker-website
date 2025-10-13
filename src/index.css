@@ -3,9 +3,9 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color-scheme: light;
+  color: #333333; /* Darker text for light background */
+  background-color: #f0f4f8; /* Light gray base */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -15,11 +15,11 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #8da4d0; /* Soft pastel blue for links */
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #6a82b3;
 }
 
 body {
@@ -28,11 +28,16 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background: linear-gradient(135deg, #e0f7fa 0%, #e1d5e7 100%); /* Blue to lavender gradient */
+  position: relative;
+  overflow: hidden;
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  color: #ffffff; /* White text for hero section */
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 button {
@@ -42,27 +47,17 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #ffffff;
+  color: #333333;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: all 0.25s;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #c9d6ef;
+  background-color: #f8f9fa;
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
 }

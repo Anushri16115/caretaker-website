@@ -1,4 +1,4 @@
-const homeICUImage = 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop';
+const homeICUImage = 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop';
 
 export default function HomeICU() {
   return (

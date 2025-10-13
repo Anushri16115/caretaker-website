@@ -1,0 +1,75 @@
+import React, { useState } from 'react';
+import '../styles/HeroForm.css';
+
+const HeroForm: React.FC = () => {
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    setIsSubmitted(true);
+  };
+
+  if (isSubmitted) {
+    return (
+      <aside className="hero-card card hero-card-right success-message">
+        <h3>Thank you!</h3>
+        <p>Our care expert will call you shortly to discuss your personalized plan.</p>
+      </aside>
+    );
+  }
+
+  return (
+    <aside className="hero-card card hero-card-right">
+      <h2>Request Personalized Care Assistance</h2>
+      <p className="form-intro">Share your details and our care coordinator will reach out within minutes.</p>
+      <form onSubmit={handleSubmit}>
+        <div className="form-field">
+          <label>Full Name</label>
+          <input placeholder="e.g., “Dr. Priya Sharma”" />
+        </div>
+        <div style={{ display: "flex", gap: 8 }}>
+          <div style={{ flex: 1 }} className="form-field">
+            <label>Mobile Number</label>
+            <input placeholder="e.g., “+91 98765 43210”" />
+          </div>
+          <div style={{ flex: 1 }} className="form-field">
+            <label>Location</label>
+            <select>
+              <option>Pune</option>
+              <option>Mumbai</option>
+              <option>Nashik</option>
+            </select>
+          </div>
+        </div>
+        <div className="form-field">
+          <label>Caregiver Plan</label>
+          <select>
+            <option>Elderly Care</option>
+            <option>Post-Surgery</option>
+            <option>Physiotherapy</option>
+            <option>24-Hour Assistance</option>
+          </select>
+        </div>
+        <div className="form-field">
+          <label>Patient Condition</label>
+          <input type="text" placeholder="e.g., “Post-operative care for knee surgery”" />
+        </div>
+        <div className="form-field">
+          <label>Preferred Time for Contact (Optional)</label>
+          <select>
+            <option>Morning</option>
+            <option>Afternoon</option>
+            <option>Evening</option>
+          </select>
+        </div>
+        <div style={{ marginTop: 8 }}>
+          <button type="submit" className="btn btn-primary" style={{ width: "100%" }}>
+            Get My Care Plan
+          </button>
+        </div>
+      </form>
+    </aside>
+  );
+};
+
+export default HeroForm;

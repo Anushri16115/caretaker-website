@@ -1,4 +1,4 @@
-const care24x7Image = 'https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?q=80&w=2070&auto=format&fit=crop';
+const care24x7Image = 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop';
 
 export default function Care24x7() {
   return (

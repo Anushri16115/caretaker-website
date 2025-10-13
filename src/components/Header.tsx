@@ -42,65 +42,67 @@ function MenuGroup({ title, items }: { title: string; items: MenuItem[] }) {
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   return (
-    <header className="app-header">
-      {/* Top contact bar */}
-      <div className="topbar">
-        <div className="container topbar-inner">
-          <div className="topbar-left">
-            <a href="tel:+917666426664" className="topbar-link">7666426664</a>
-            <span className="topbar-sep">|</span>
-            <a href="mailto:info@abhiruchicaretaker.com" className="topbar-link">info@abhiruchicaretaker.com</a>
-          </div>
-          <div className="topbar-right">
-            <span className="follow-label">Follow Us :-</span>
-            <div className="socials">
-              <a aria-label="Facebook" href="#">f</a>
-              <a aria-label="Instagram" href="#">ig</a>
-              <a aria-label="YouTube" href="#">yt</a>
-              <a aria-label="Twitter" href="#">x</a>
-              <a aria-label="LinkedIn" href="#">in</a>
+    <>
+      <header className="app-header">
+        {/* Top contact bar */}
+        <div className="topbar">
+          <div className="container topbar-inner">
+            <div className="topbar-left">
+              <a href="tel:+917276526772" className="topbar-link">+91 7276526772</a>
+              <span className="topbar-sep">|</span>
+              <a href="mailto:info@abhiruchicaretaker.com" className="topbar-link">info@abhiruchicaretaker.com</a>
+            </div>
+            <div className="topbar-right">
+              <span className="follow-label">Follow Us :-</span>
+              <div className="socials">
+                <a aria-label="Facebook" href="#">f</a>
+                <a aria-label="Instagram" href="#">ig</a>
+                <a aria-label="YouTube" href="#">yt</a>
+                <a aria-label="Twitter" href="#">x</a>
+                <a aria-label="LinkedIn" href="#">in</a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Main navigation bar */}
-      <div className="container header-inner">
-        {/* Logo left */}
-        <div className="logo-wrap">
-          <a href="/" className="brand" aria-label="Abhiruchi Caretaker">
-            <span className="logo-mark" aria-hidden="true">AC</span>
-            <span className="brand-text">Abhiruchi Caretaker</span>
-          </a>
+        {/* Main navigation bar */}
+        <div className="container header-inner">
+          {/* Logo left */}
+          <div className="logo-wrap">
+            <a href="/" className="brand" aria-label="Abhiruchi Caretaker">
+              <span className="logo-mark" aria-hidden="true">AC</span>
+              <span className="brand-text">Abhiruchi Caretaker</span>
+            </a>
+          </div>
+
+          {/* Mobile hamburger */}
+          <button
+            className="hamburger"
+            aria-label="Toggle menu"
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-nav"
+            onClick={() => setMobileOpen(!mobileOpen)}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+
+          {/* Centered nav */}
+          <nav className="main-nav centered" aria-label="Primary">
+            <a href="/">Home</a>
+            <a href="/about">About Us</a>
+            <MenuGroup title="Services +" items={ServiceBased} />
+            <a href="/blog">Blog</a>
+            <a href="/physiotherapy">Physiotherapy</a>
+          </nav>
+
+          {/* CTA right */}
+          <div className="header-cta">
+            <a href="/contact" className="btn cta-book pill-btn">Contact Us</a>
+          </div>
         </div>
-
-        {/* Mobile hamburger */}
-        <button
-          className="hamburger"
-          aria-label="Toggle menu"
-          aria-expanded={mobileOpen}
-          aria-controls="mobile-nav"
-          onClick={() => setMobileOpen(!mobileOpen)}
-        >
-          <span />
-          <span />
-          <span />
-        </button>
-
-        {/* Centered nav */}
-        <nav className="main-nav centered" aria-label="Primary">
-          <a href="/">Home</a>
-          <a href="/about">About Us</a>
-          <MenuGroup title="Services +" items={ServiceBased} />
-          <a href="/blog">Blog</a>
-          <a href="/physiotherapy">Physiotherapy</a>
-        </nav>
-
-        {/* CTA right */}
-        <div className="header-cta">
-          <a href="/contact" className="btn cta-book pill-btn">Contact Us</a>
-        </div>
-      </div>
+      </header>
 
       {/* Mobile nav drawer */}
       <nav
@@ -130,6 +132,6 @@ export default function Header() {
         <a href="/physiotherapy">Physiotherapy</a>
         <a href="/contact" className="btn cta-book pill-btn">Contact Us</a>
       </nav>
-    </header>
+    </>
   );
 }

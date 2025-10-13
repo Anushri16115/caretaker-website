@@ -1,4 +1,4 @@
-const nightCareImage = 'https://images.unsplash.com/photo-1507679788325-013816c0b489?q=80&w=2070&auto=format&fit=crop';
+const nightCareImage = 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop';
 
 export default function NightCare() {
   return (

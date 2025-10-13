@@ -1,7 +1,7 @@
 import "../../styles/PostSurgery.css";
 
 // A more specific image for post-surgery recovery care
-const postSurgeryImage = 'https://images.unsplash.com/photo-1584515933487-779824d29309?q=80&w=2070&auto=format&fit=crop';
+const postSurgeryImage = 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop';
 
 export default function PostSurgeryRecoveryCare() {
   return (
