@@ -631,6 +631,7 @@ summary::-webkit-details-marker{display:none}
   .hero-main-content {
     order: 2;
     flex-direction: column;
+    align-items: center; /* Center content horizontally */
   }
 
   .hero-content {
@@ -641,6 +642,12 @@ summary::-webkit-details-marker{display:none}
     width: 100%;
     max-width: 500px;
     margin-top: 32px;
+  }
+
+  .hero-form-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
   .why-grid { grid-template-columns: 1fr; }
@@ -664,10 +671,11 @@ summary::-webkit-details-marker{display:none}
 
   .hero {
     min-height: auto;
+    padding-top: 60px; /* Add padding to push content down from header */
   }
 
   .hero-inner {
-    padding: 32px 16px;
+    padding: 48px 24px; /* Increase padding for better spacing */
   }
 
   .hero-content h1 {
@@ -685,7 +693,14 @@ summary::-webkit-details-marker{display:none}
   }
 
   .hero-video {
-    display: none;
+    /* Keep video as a background element */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
   }
 
   .hero-inner::before {

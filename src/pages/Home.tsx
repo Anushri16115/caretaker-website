@@ -28,6 +28,7 @@ const Home = () => {
               </p>
             </motion.div>
             <motion.div
+              className="hero-form-container" // Added class
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
@@ -166,7 +167,7 @@ const Home = () => {
 
       {/* Safety & Quality */}
       <AnimatedSection className="section safety-quality full-bleed">
-        <div className="container">
+          <div className="container">
           <h2 className="section-title center">Your Safety and Quality of Care — Our Topmost Priority</h2>
           <p className="section-subtitle center">Every caregiver at Abhiruchi Caretaker is trained, verified, and dedicated to providing care that you can trust — because your loved ones deserve nothing less than excellence.</p>
           <div className="safety-list">
