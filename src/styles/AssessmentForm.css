@@ -1,6 +1,6 @@
 .assessment-form-container {
     background: var(--card);
-    border-radius: 14px;
+    border-radius: 0;
     padding: 2rem;
     box-shadow: 0 12px 30px rgba(0,0,0,0.25);
     border: 1px solid rgba(241, 245, 249, 0.1);
