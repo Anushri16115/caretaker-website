@@ -676,15 +676,16 @@ summary::-webkit-details-marker{display:none}
 
   .hero-main-content {
     flex-direction: column;
+    gap: 32px;
+  }
+
+  .hero-content {
+    align-items: center;
+    text-align: center;
   }
 
   .hero-video {
-    position: static;
-    width: 100%;
-    height: auto;
-    max-height: 50vh;
-    border-radius: 14px;
-    margin-bottom: 24px;
+    display: none;
   }
 
   .hero-inner::before {

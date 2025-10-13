@@ -166,9 +166,9 @@ const Home = () => {
 
       {/* Safety & Quality */}
       <AnimatedSection className="section safety-quality full-bleed">
-        <div class="container">
+        <div className="container">
           <h2 className="section-title center">Your Safety and Quality of Care — Our Topmost Priority</h2>
-          <p class="section-subtitle center">Every caregiver at Abhiruchi Caretaker is trained, verified, and dedicated to providing care that you can trust — because your loved ones deserve nothing less than excellence.</p>
+          <p className="section-subtitle center">Every caregiver at Abhiruchi Caretaker is trained, verified, and dedicated to providing care that you can trust — because your loved ones deserve nothing less than excellence.</p>
           <div className="safety-list">
             {[
               { title: "Thorough Background Verification", desc: "Each caregiver undergoes rigorous ID checks, address verification, and police clearance. We ensure only verified and trustworthy professionals enter your home.", icon: "🕵️" },
