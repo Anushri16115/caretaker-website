@@ -1,5 +1,4 @@
-import { motion } from 'framer-motion';
-import HeroForm from '../components/HeroForm';
+import HeroSection from '../components/HeroSection';
 import AnimatedSection from '../components/AnimatedSection';
 import AnimatedLogo from '../components/AnimatedLogo';
 
@@ -10,38 +9,11 @@ const ctaImage = 'https://images.unsplash.com/photo-1520333789090-1afc82db536a?q
 const Home = () => {
   return (
     <div>
-      <section className="hero">
-        <div className="hero-inner container full-bleed">
-          <video autoPlay loop muted className="hero-video">
-            <source src="/Patient Caretaker Video.mp4" type="video/mp4" />
-          </video>
-          <div className="hero-main-content">
-            <motion.div 
-              className="hero-content"
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: 'easeOut' }}
-            >
-              <h1>Compassionate Home Care Services</h1>
-              <p className="muted">
-                Your trusted partner for professional, personalized, and heartfelt care at home.
-              </p>
-            </motion.div>
-            <motion.div
-              className="hero-form-container" // Added class
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
-            >
-              <HeroForm />
-            </motion.div>
-          </div>
-        </div>
-      </section>
+      <HeroSection />
 
 
       {/* Why Choose Us */}
-      <AnimatedSection className="section why-choose-us full-bleed">
+      <AnimatedSection className="section why-choose-us">
         <div className="container">
           <h2 className="section-title center">Why Choose Abhiruchi Caretaker?</h2>
           <p className="section-subtitle center">
@@ -166,7 +138,7 @@ const Home = () => {
       </AnimatedSection>
 
       {/* Safety & Quality */}
-      <AnimatedSection className="section safety-quality full-bleed">
+      <AnimatedSection className="section safety-quality">
           <div className="container">
           <h2 className="section-title center">Your Safety and Quality of Care — Our Topmost Priority</h2>
           <p className="section-subtitle center">Every caregiver at Abhiruchi Caretaker is trained, verified, and dedicated to providing care that you can trust — because your loved ones deserve nothing less than excellence.</p>
@@ -189,7 +161,7 @@ const Home = () => {
       </AnimatedSection>
 
       {/* Our Services */}
-      <AnimatedSection className="section services full-bleed">
+      <AnimatedSection className="section services">
         <div className="container">
           <h2 className="section-title center">Our Services</h2>
           <div className="services-grid">
@@ -214,7 +186,7 @@ const Home = () => {
       </AnimatedSection>
 
       {/* CTA Banner */}
-      <AnimatedSection className="section cta-banner full-bleed" aria-label="Contact CTA" style={{
+      <AnimatedSection className="section cta-banner" aria-label="Contact CTA" style={{
         backgroundImage: `linear-gradient(rgba(15,23,42,0.6), rgba(15,23,42,0.6)), url(${ctaImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center'

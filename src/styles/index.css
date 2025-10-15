@@ -88,63 +88,6 @@ body {
 .app-header nav a{margin-left:14px;color:var(--text);text-decoration:none;font-weight:600}
 .app-header nav a:hover{color:var(--accent)}
 
-/* Updated Header and Hero Alignment */
-
-/* Header: full width, flex container with proper spacing */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-/* Ensure logo stays left, nav items are right aligned */
-.header .logo {
-  flex-shrink: 0;
-}
-
-.header .nav-links {
-  display: flex;
-  gap: 20px; /* Adjust gap as necessary */
-  align-items: center;
-}
-
-/* Hero Section: center content, full-bleed background image */
-.hero-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 40px 20px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-/* Optional: Hero content wrapper for finer alignment if needed */
-.hero-content {
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-}
-
-/* Media query for larger screens to adjust hero layout */
-@media (min-width: 1024px) {
-  .hero-section {
-    padding: 60px 40px;
-  }
-  .header {
-    padding: 15px 40px;
-  }
-}
-
 /* Header Styles: Align content in one line with logo on left and nav links on right */
 .header {
   display: none;
@@ -212,6 +155,10 @@ summary::-webkit-details-marker{display:none}
 
   .app-header .container{justify-content:space-between}
   .hamburger{display:flex}
+
+  .header-inner {
+    padding: 0 16px; /* Match container padding on mobile */
+  }
 }
 
 /* Header CTAs */
@@ -243,78 +190,51 @@ summary::-webkit-details-marker{display:none}
 /* Hero Section - Fix Form Overlap & Mobile Layout */
 .hero {
   position: relative;
+  height: 100vh;
   width: 100%;
-  min-height: calc(100vh - var(--topbar-h) - var(--header-h));
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
+  color: white;
 }
 
 .hero-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  position: relative;
+  top: 20px;
+  left: 20px;
+  width: 5000px;
+  height: 5000px;
   object-fit: cover;
-  z-index: 0; /* Lower z-index for video */
+  z-index: -1;
 }
 
 .hero-inner {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 24px;
-  margin: 0;
-  width: 100%;
-  min-height: inherit;
-  max-width: 100%;
-  padding: 40px 20px;
-  z-index: 2; /* Higher than video */
-}
-
-.hero-main-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-  max-width: var(--container-width);
-  gap: 32px;
-  position: relative;
-  z-index: 3;
+  z-index: 1;
+  text-align: center;
+  padding: 24px 16px;
 }
 
 .hero-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  max-width: 100%;
-  width: 100%;
-  color: var(--text);
-  padding: 0;
-  text-shadow: 0 1px 4px rgba(255,255,255,0.5);
-  position: relative;
-  z-index: 4;
+  padding: 24px 0;
+}
+
+.hero .muted {
+  color: rgba(255, 255, 255, 0.9);
 }
 
 /* Form Container Specific Fixes */
 .hero-form-container {
   position: relative;
   width: 100%;
-  max-width: 400px;
-  margin: 0 auto;
-  z-index: 5;
-  background: rgba(255, 255, 255, 0.95); /* Semi-transparent background */
-  backdrop-filter: blur(10px); /* Glass morphism effect */
+  max-width: 420px;
+  margin: 24px auto;
+  background: #fff;
   border-radius: 16px;
   padding: 24px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-sizing: border-box; /* Ensure padding is included in width */
+  box-sizing: border-box;
 }
 
 /* Ensure form elements are properly stacked */
@@ -353,12 +273,11 @@ summary::-webkit-details-marker{display:none}
 /* Mobile-first responsive design */
 @media (max-width: 768px) {
   .hero-inner {
-    padding: 20px 16px;
-    gap: 20px;
+    padding: 20px 20px;
   }
-  
-  .hero-main-content {
-    gap: 24px;
+
+  .hero-form-container {
+    margin-bottom: 24px;
   }
   
   .hero-content h1 {
@@ -366,44 +285,25 @@ summary::-webkit-details-marker{display:none}
     margin-bottom: 16px;
     line-height: 1.3;
   }
-  
   .hero-content p {
     font-size: 1rem;
     line-height: 1.5;
     margin-bottom: 8px;
   }
-  
-  .hero-form-container {
-    max-width: 100%;
-    padding: 20px;
-    margin-top: 20px;
-  }
-  
-  /* Ensure form doesn't overlap on very small screens */
-  .hero {
-    min-height: auto;
-    padding-bottom: 40px;
-  }
 }
 
 @media (max-width: 480px) {
-  .hero-inner {
-    padding: 16px 12px;
-    gap: 16px;
-  }
-  
   .hero-content h1 {
     font-size: 1.5rem;
   }
-  
   .hero-form-container {
-    padding: 16px;
-    border-radius: 16px; /* Match default radius */
+    padding: 20px;
   }
   
   .hero-form-container input,
-  .hero-form-container select {
-    padding: 14px 12px; /* Larger touch targets */
+  .hero-form-container select,
+  .hero-form-container textarea {
+    padding: 16px; /* Even larger touch targets */
     font-size: 16px; /* Prevent iOS zoom */
   }
 }
@@ -417,52 +317,11 @@ summary::-webkit-details-marker{display:none}
 
 /* Desktop layout - only apply these on larger screens */
 @media (min-width: 1025px) {
-  .hero-inner {
-    flex-direction: row;
-    justify-content: flex-start; /* Shift content to the left */
-    align-items: center;
-    padding: 56px 80px; /* Add more padding on the left */
-  }
   
-  .hero-main-content {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 48px;
-  }
-  
-  .hero-content {
-    align-items: flex-start;
-    text-align: left;
-    max-width: 560px;
-    padding-top: 0;
-  }
-  
-  .hero-form-container {
-    width: 420px;
-    max-width: 420px;
-    margin: 0;
-    flex-shrink: 0;
-  }
-  
-  /* Restore your original desktop styles */
-  .hero-card.hero-card-left {
-    width: 460px;
-    max-width: 46%;
-    margin-right: 20px;
-  }
-  
-  .hero-card.hero-card-right {
-    margin-left: auto;
-  }
 }
 
 /* Fix for very tall mobile screens */
 @media (max-height: 700px) and (max-width: 768px) {
-  .hero {
-    min-height: 100vh;
-  }
-  
   .hero-inner {
     justify-content: flex-start;
     padding-top: 60px;
@@ -492,19 +351,22 @@ summary::-webkit-details-marker{display:none}
 .notification-bell{background:transparent;border:0;font-size:1.15rem;cursor:pointer}
 
 /* Responsive */
+/* Full-bleed container on wide screens */
+.container.full-bleed{max-width:100%;padding-left:40px;padding-right:40px}
+
+@media (max-width:1200px){
+  .container.full-bleed{padding-left:24px;padding-right:24px}
+}
+
 @media (max-width:900px){
   .grid{grid-template-columns:repeat(2,1fr)}
   .app-header .container{padding:8px}
   .container{padding:16px}
-}
-@media (max-width:600px){
-  .grid{grid-template-columns:1fr}
+
 }
 
-/* Full-bleed container on wide screens */
-.container.full-bleed{max-width:100%;padding-left:40px;padding-right:40px}
-@media (max-width:1200px){
-  .container.full-bleed{padding-left:24px;padding-right:24px}
+@media (max-width:600px){
+  .grid{grid-template-columns:1fr}
 }
 
 /* Utilities */
@@ -760,15 +622,6 @@ summary::-webkit-details-marker{display:none}
     text-align: center;
   }
 
-  .hero-video {
-    display: block; /* Ensure video is visible */
-    position: static;
-    order: 1;
-    margin-bottom: 24px;
-    border-radius: 16px; /* Match form radius */
-    max-height: 50vh;
-  }
-
   .hero-main-content {
     order: 2;
     flex-direction: column;
@@ -777,12 +630,6 @@ summary::-webkit-details-marker{display:none}
 
   .hero-content {
     align-items: center;
-  }
-
-  .hero-card {
-    width: 100%;
-    max-width: 500px;
-    margin-top: 32px;
   }
 
   .hero-form-container {
@@ -810,35 +657,29 @@ summary::-webkit-details-marker{display:none}
     font-size: 2.2rem;
   }
 
-  .hero {
-    min-height: auto;
-    padding-top: 60px; /* Add padding to push content down from header */
-  }
-
-  .hero-inner {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 48px 24px; /* Increase padding for better spacing */
-  }
 
   .hero-content h1 {
     font-size: 2.2rem;
   }
 
   .hero-main-content {
+    order: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
     gap: 32px;
+    z-index: 2;
   }
 
+
+
+
   .hero-content {
-    align-items: center;
-    text-align: center;
+    align-items: center !important; /* Override desktop styles */
+    text-align: center !important; /* Override desktop styles */
+    width: 100%;
   }
 
   .hero-form-container {
@@ -847,27 +688,11 @@ summary::-webkit-details-marker{display:none}
     margin: 32px auto 0; /* Use auto for horizontal centering */
   }
 
-  .hero-video {
-    /* Keep video as a background element */
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-  }
 
-  .hero-inner::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(240, 244, 255, 0.7); /* Semi-transparent overlay */
-    z-index: 1; /* Position it above the video but below the content */
-  }
+
+
+
+
 
   .core-values-grid { grid-template-columns: 1fr; }
   .testimonials-heading h2 { font-size: 3rem; }

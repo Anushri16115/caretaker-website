@@ -27,12 +27,12 @@ const HeroForm: React.FC = () => {
           <label>Full Name</label>
           <input placeholder="e.g., “Dr. Priya Sharma”" />
         </div>
-        <div style={{ display: "flex", gap: 8 }}>
-          <div style={{ flex: 1 }} className="form-field">
+        <div className="form-row">
+          <div className="form-field">
             <label>Mobile Number</label>
             <input placeholder="e.g., “+91 98765 43210”" />
           </div>
-          <div style={{ flex: 1 }} className="form-field">
+          <div className="form-field">
             <label>Location</label>
             <select>
               <option>Pune</option>
