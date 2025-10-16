@@ -1,16 +1,67 @@
 import HeroSection from '../components/HeroSection';
 import AnimatedSection from '../components/AnimatedSection';
 import AnimatedLogo from '../components/AnimatedLogo';
+import { useKeenSlider } from 'keen-slider/react';
+import 'keen-slider/keen-slider.min.css';
+import healthMonitoring from '../assets/doctor-checkup/eldery_treatment_03.jpg';
+import medicationSupport from '../assets/doctor-nurse/doctor_consultation_03.jpg';
+import companionship from '../assets/flat-nurse-helping-patient/2325578.jpg';
+import hygieneCare from '../assets/self-care-concept-with-man-activities/3794815.jpg';
+import mobilityHelp from '../assets/flat-nurse-helping-patient/2325578.jpg'; // Using a duplicate for now
 
 // Define different images for each section
 const whyChooseUsImage = 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop';
 const ctaImage = 'https://images.unsplash.com/photo-1520333789090-1afc82db536a?q=80&w=2070&auto=format&fit=crop';
 
 const Home = () => {
+  const [sliderRef] = useKeenSlider<HTMLDivElement>({
+    loop: true,
+    mode: "free-snap",
+    slides: {
+      perView: 5,
+      spacing: 15,
+      origin: 'center',
+    },
+    breakpoints: {
+      '(max-width: 1024px)': {
+        slides: { perView: 4, spacing: 10 },
+      },
+      '(max-width: 768px)': {
+        slides: { perView: 3, spacing: 10 },
+      },
+      '(max-width: 600px)': {
+        slides: { perView: 2, spacing: 16 },
+      },
+      '(max-width: 480px)': {
+        slides: { perView: 1.2, spacing: 16, origin: 'center' },
+      },
+    },
+  });
   return (
     <div>
       <HeroSection />
 
+      {/* Our Services */}
+      <AnimatedSection className="section services">
+        <div className="container">
+          <h2 className="section-title center">Our Services</h2>
+          <div ref={sliderRef} className="keen-slider">
+            {[
+              { title: "Health Monitoring", img: healthMonitoring },
+              { title: "Medication Support", img: medicationSupport },
+              { title: "Companionship", img: companionship },
+              { title: "Hygiene Care", img: hygieneCare },
+              
+              { title: "Mobility Help", img: mobilityHelp },
+            ].map((s) => (
+              <div key={s.title} className="keen-slider__slide service-card-vertical card">
+                <img src={s.img} alt={s.title} className="service-card-img" />
+                <h3 className="service-card-title">{s.title}</h3>
+              </div>
+            ))}
+          </div>
+        </div>
+      </AnimatedSection>
 
       {/* Why Choose Us */}
       <AnimatedSection className="section why-choose-us">
@@ -36,20 +87,7 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="core-values-grid">
-            {[
-              { icon: "🩺", title: "Qualified Professionals", desc: "Certified caretakers and nurses trained to handle medical and personal needs." },
-              { icon: "🕒", title: "24/7 Availability", desc: "Round-the-clock assistance for peace of mind and immediate support." },
-              { icon: "💬", title: "Personalized Care Plans", desc: "Every patient receives a care plan tailored to their condition and comfort." },
-              { icon: "❤️", title: "Trusted by Families", desc: "Over 1,000+ families across India rely on us for compassionate, reliable care." },
-            ].map((v) => (
-              <div key={v.title} className="core-value-card card">
-                <div className="core-value-icon">{v.icon}</div>
-                <h3 className="core-value-title">{v.title}</h3>
-                <p className="core-value-desc muted">{v.desc}</p>
-              </div>
-            ))}
-          </div>
+          
         </div>
       </AnimatedSection>
 
@@ -153,31 +191,6 @@ const Home = () => {
                 <div className="safety-copy">
                   <div className="safety-title">{i.title}</div>
                   <div className="safety-desc muted">{i.desc}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </AnimatedSection>
-
-      {/* Our Services */}
-      <AnimatedSection className="section services">
-        <div className="container">
-          <h2 className="section-title center">Our Services</h2>
-          <div className="services-grid">
-            {[
-              { title: "Hygiene Care", desc: "Bathing, dressing, grooming & personal cleanliness", icon: "🛁" },
-              { title: "Meal Assistance", desc: "Feeding and ensuring dietary needs are met", icon: "🍽️" },
-              { title: "Medication Support", desc: "Reminders and basic help with meds (non‑clinical)", icon: "💊" },
-              { title: "Mobility Help", desc: "Walking, wheelchair transfers, and movement aid", icon: "🚶" },
-              { title: "Companionship", desc: "Emotional support, conversations, reading, TV", icon: "👥" },
-              { title: "Health Monitoring", desc: "Vitals check (for trained nursing staff only)", icon: "📈" },
-            ].map((s) => (
-              <div key={s.title} className="service-card card">
-                <div className="service-icon" aria-hidden>{s.icon}</div>
-                <div className="service-body">
-                  <div className="service-title">{s.title}</div>
-                  <div className="service-desc muted">{s.desc}</div>
                 </div>
               </div>
             ))}

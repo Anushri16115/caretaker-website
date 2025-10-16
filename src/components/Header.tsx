@@ -3,6 +3,11 @@ import { useState } from "react";
 
 type MenuItem = string | { label: string; href: string };
 
+const LoginBased: MenuItem[] = [
+  { label: "Patient Login", href: "/login/patient" },
+  { label: "Caretaker Login", href: "/login/caretaker" },
+];
+
 const ServiceBased: MenuItem[] = [
   { label: "Post-Surgery Recovery Care", href: "/services/post-surgery-recovery-care" },
   { label: "Post-Delivery Care (Mother + Newborn)", href: "/services/post-delivery-care-mother-newborn" },
@@ -95,11 +100,12 @@ export default function Header() {
             <MenuGroup title="Services +" items={ServiceBased} />
             <a href="/blog">Blog</a>
             <a href="/physiotherapy">Physiotherapy</a>
+            <MenuGroup title="Login" items={LoginBased} />
           </nav>
 
           {/* CTA right */}
           <div className="header-cta">
-            <a href="/contact" className="btn cta-book pill-btn">Contact Us</a>
+            {/* CTA buttons can be added here if needed in the future */}
           </div>
         </div>
       </header>
@@ -130,7 +136,22 @@ export default function Header() {
         </details>
         <a href="/blog">Blog</a>
         <a href="/physiotherapy">Physiotherapy</a>
-        <a href="/contact" className="btn cta-book pill-btn">Contact Us</a>
+        <details className="nav-item">
+          <summary className="nav-summary">Login</summary>
+          <div className="dropdown">
+            <ul>
+              {LoginBased.map((it) => {
+                const label = typeof it === "string" ? it : it.label;
+                const href = typeof it === "string" ? "#" : it.href;
+                return (
+                  <li key={label}>
+                    <a href={href}>{label}</a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </details>
       </nav>
     </>
   );

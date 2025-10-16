@@ -20,26 +20,15 @@ const HeroForm: React.FC = () => {
 
   return (
     <aside className="hero-card card hero-card-right">
-      <h2>Request Personalized Care Assistance</h2>
-      <p className="form-intro">Share your details and our care coordinator will reach out within minutes.</p>
+      <h2>Assistance Form</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-field">
           <label>Full Name</label>
           <input placeholder="e.g., “Dr. Priya Sharma”" />
         </div>
-        <div className="form-row">
-          <div className="form-field">
-            <label>Mobile Number</label>
-            <input placeholder="e.g., “+91 98765 43210”" />
-          </div>
-          <div className="form-field">
-            <label>Location</label>
-            <select>
-              <option>Pune</option>
-              <option>Mumbai</option>
-              <option>Nashik</option>
-            </select>
-          </div>
+        <div className="form-field">
+          <label>Mobile Number</label>
+          <input placeholder="e.g., “+91 98765 43210”" />
         </div>
         <div className="form-field">
           <label>Caregiver Plan</label>
@@ -50,18 +39,8 @@ const HeroForm: React.FC = () => {
             <option>24-Hour Assistance</option>
           </select>
         </div>
-        <div className="form-field">
-          <label>Patient Condition</label>
-          <input type="text" placeholder="e.g., “Post-operative care for knee surgery”" />
-        </div>
-        <div className="form-field">
-          <label>Preferred Time for Contact (Optional)</label>
-          <select>
-            <option>Morning</option>
-            <option>Afternoon</option>
-            <option>Evening</option>
-          </select>
-        </div>
+        
+        
         <div style={{ marginTop: 8 }}>
           <button type="submit" className="btn btn-primary" style={{ width: "100%" }}>
             Get My Care Plan

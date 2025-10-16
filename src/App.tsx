@@ -4,8 +4,9 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
-import Login from "./pages/Login";
 import Register from "./pages/Register";
+import PatientLogin from "./pages/PatientLogin";
+import CaretakerLogin from "./pages/CaretakerLogin";
 import Blog from "./pages/Blog";
 import Physiotherapy from "./pages/Physiotherapy";
 import "./styles/index.css";
@@ -40,7 +41,8 @@ export default function App() {
           <Route path="/services/palliative-care" element={<PalliativeCare />} />
           <Route path="/services/hospice-care" element={<HospiceCare />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login/patient" element={<PatientLogin />} />
+          <Route path="/login/caretaker" element={<CaretakerLogin />} />
           <Route path="/register" element={<Register />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/physiotherapy" element={<Physiotherapy />} />

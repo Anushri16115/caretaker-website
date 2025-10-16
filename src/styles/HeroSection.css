@@ -2,30 +2,82 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem;
+  padding: 1rem 1rem 0;
 }
 
 .hero-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 0; /* Removed margin */
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: #ff7f50; /* Example color */
+  color: white;
+  padding: 12px 24px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 1.5rem;
+  transition: background-color 0.2s ease;
+}
+
+.cta-button:hover {
+  background-color: var(--accent, #a7b2f5);
 }
 
 .video-container {
+  position: relative;
   width: 100%;
-  max-width: 800px;
-  margin-bottom: 2rem;
+  max-width: 1200px;
+  margin-bottom: 0; /* Removed margin */
+  border-radius: 8px; /* Apply border-radius to the container */
+  overflow: hidden; /* Hide anything that spills out */
+}
+
+/* Gradient overlay */
+.video-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, rgba(15, 23, 42, 0.8) 0%, rgba(15, 23, 42, 0.1) 60%, transparent 100%);
+  z-index: 1;
 }
 
 .video-container video {
   width: 100%;
-  border-radius: 8px;
+  height: 500px;
+  object-fit: cover;
+  display: block; /* Remove any extra space */
 }
 
 .text-container {
-  text-align: center;
-  max-width: 600px;
+  position: absolute;
+  top: 50%;
+  left: 8%; /* Align to the left */
+  transform: translateY(-50%);
+  text-align: left; /* Align text to the left */
+  max-width: 550px; /* Adjust width */
+  color: white;
+  z-index: 2; /* Ensure text is above the gradient */
+  padding: 0; /* Remove previous padding */
+  background-color: transparent; /* Remove the background box */
+}
+
+.text-container h1 {
+  font-size: 2.2rem; /* Reduced font size */
+  font-weight: 700;
+  line-height: 1.1; /* Reduced line height */
+}
+
+.text-container p {
+  font-size: 1.1rem;
+  opacity: 0.9;
 }
 
 .hero-form-container {
@@ -33,21 +85,48 @@
   max-width: 500px;
 }
 
+@media (max-width: 767px) {
+  .hero-section {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: -1rem; /* Counteract container padding */
+    margin-right: -1rem; /* Counteract container padding */
+  }
+}
+
 @media (min-width: 768px) {
   .hero-section {
     flex-direction: row;
     justify-content: space-around;
-    align-items: flex-start;
+    align-items: stretch; /* Align items to stretch to the same height */
+    padding: 2rem 2rem 0; /* Restore padding for desktop, remove bottom */
   }
 
   .hero-content {
-    flex: 1;
+    flex: 1.5; /* Gave more space to content */
     margin-right: 2rem;
     margin-bottom: 0;
   }
 
   .hero-form-container {
     flex: 1;
-    max-width: 400px;
+    max-width: 450px; /* Slightly increased form width */
+    display: flex; /* Allow form to fill height */
+  }
+
+  .hero-form-container > .card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-form-container form {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Allow form to grow */
+  }
+
+  .hero-form-container form > div:last-child {
+    margin-top: auto; /* Push button to the bottom */
   }
 }

@@ -343,8 +343,8 @@ summary::-webkit-details-marker{display:none}
 .btn-danger{background:var(--danger);color:white}
 
 /* Forms */
-.form-field{display:flex;flex-direction:column;margin-bottom:12px}
-.form-field label{font-size:0.95rem;margin-bottom:6px;color:var(--muted)}
+.form-field{display:flex;flex-direction:column;margin-bottom:8px} /* Reduced margin */
+.form-field label{font-size:0.95rem;margin-bottom:4px;color:var(--muted)} /* Reduced margin */
 .form-field input,.form-field select, .form-field textarea{padding:10px;border-radius:8px;border:1px solid #dbe1f1;background:var(--bg); color: var(--text);}
 
 /* Notifications */
@@ -569,7 +569,39 @@ summary::-webkit-details-marker{display:none}
 }
 
   /* Services */
-  .services{background: transparent;}
+  .services {
+    background: transparent;
+    padding-top: 0; /* Removed top padding */
+  }
+  
+
+  .service-card-vertical {
+    background: #fff;
+    border-radius: 12px;
+    padding: 0 8px; /* Add horizontal padding */
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    overflow: hidden; /* Ensures the image corners are rounded */
+  }
+
+  .service-card-vertical:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .service-card-img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+  }
+
+  .service-card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 16px 12px;
+    margin: 0;
+  }
+
   .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
   .service-card{display:flex;gap:12px;align-items:flex-start; background: #ffffff !important;}
   .service-icon{font-size:2.6rem}
@@ -651,6 +683,19 @@ summary::-webkit-details-marker{display:none}
 @media (max-width: 768px) {
   .section {
     padding: 64px 0;
+  }
+
+  .services .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .services .keen-slider {
+    padding-left: 16px; /* Re-apply padding inside the slider */
+  }
+
+  .keen-slider__slide {
+    min-width: 150px; /* Prevent cards from collapsing */
   }
 
   .section-title {
@@ -1010,6 +1055,70 @@ summary::-webkit-details-marker{display:none}
   .benefits-grid-nc {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+
+/* Login Form Styles */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - var(--header-h) - var(--topbar-h) - 50px); /* Adjust for header/footer */
+  padding: 20px;
+}
+
+.login-form {
+  width: 100%;
+  max-width: 420px;
+  padding: 28px;
+}
+
+.login-form h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-family: var(--font-heading);
+}
+
+.login-form .form-field {
+  margin-bottom: 16px;
+}
+
+.login-form .btn-primary {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+}
+
+.form-options {
+  text-align: right;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+}
+
+.form-options a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.form-options a:hover {
+  color: var(--accent-600);
+  text-decoration: underline;
+}
+
+.create-account-link {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.create-account-link a {
+  color: var(--accent-600);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.create-account-link a:hover {
+  text-decoration: underline;
 }
 
 @media (max-width: 600px) {
