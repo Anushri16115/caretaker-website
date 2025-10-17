@@ -11,32 +11,64 @@ import mobilityHelp from '../assets/flat-nurse-helping-patient/2325578.jpg'; // 
 
 // Define different images for each section
 const whyChooseUsImage = 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop';
-const ctaImage = 'https://images.unsplash.com/photo-1520333789090-1afc82db536a?q=80&w=2070&auto=format&fit=crop';
+const ctaImage = 'https://images.pexels.com/photos/34328480/pexels-photo-34328480.jpeg';
 
 const Home = () => {
-  const [sliderRef] = useKeenSlider<HTMLDivElement>({
-    loop: true,
-    mode: "free-snap",
-    slides: {
-      perView: 5,
-      spacing: 15,
-      origin: 'center',
+  const [sliderRef] = useKeenSlider<HTMLDivElement>(
+    {
+      loop: true,
+      mode: "free-snap",
+      slides: {
+        perView: 4,
+        spacing: 20,
+        origin: 'center',
+      },
+      breakpoints: {
+        '(max-width: 1024px)': {
+          slides: { perView: 4, spacing: 10 },
+        },
+        '(max-width: 768px)': {
+          slides: { perView: 3, spacing: 10 },
+        },
+        '(max-width: 600px)': {
+          slides: { perView: 2, spacing: 16 },
+        },
+        '(max-width: 480px)': {
+          slides: { perView: 1.2, spacing: 16, origin: 'center' },
+        },
+      },
     },
-    breakpoints: {
-      '(max-width: 1024px)': {
-        slides: { perView: 4, spacing: 10 },
+    [
+      (slider) => {
+        let timeout: ReturnType<typeof setTimeout>;
+        let mouseOver = false;
+        function clearNextTimeout() {
+          clearTimeout(timeout);
+        }
+        function nextTimeout() {
+          clearTimeout(timeout);
+          if (mouseOver) return;
+          timeout = setTimeout(() => {
+            slider.next();
+          }, 2000);
+        }
+        slider.on("created", () => {
+          slider.container.addEventListener("mouseover", () => {
+            mouseOver = true;
+            clearNextTimeout();
+          });
+          slider.container.addEventListener("mouseout", () => {
+            mouseOver = false;
+            nextTimeout();
+          });
+          nextTimeout();
+        });
+        slider.on("dragStarted", clearNextTimeout);
+        slider.on("animationEnded", nextTimeout);
+        slider.on("updated", nextTimeout);
       },
-      '(max-width: 768px)': {
-        slides: { perView: 3, spacing: 10 },
-      },
-      '(max-width: 600px)': {
-        slides: { perView: 2, spacing: 16 },
-      },
-      '(max-width: 480px)': {
-        slides: { perView: 1.2, spacing: 16, origin: 'center' },
-      },
-    },
-  });
+    ]
+  );
   return (
     <div>
       <HeroSection />
@@ -53,6 +85,7 @@ const Home = () => {
               { title: "Hygiene Care", img: hygieneCare },
               
               { title: "Mobility Help", img: mobilityHelp },
+              { title: "Post-Operative Care", img: medicationSupport },
             ].map((s) => (
               <div key={s.title} className="keen-slider__slide service-card-vertical card">
                 <img src={s.img} alt={s.title} className="service-card-img" />
@@ -144,31 +177,34 @@ const Home = () => {
             <div className="cities-image card">
               <AnimatedLogo />
             </div>
-            <ul className="city-chips">
-              {[
-                "Mumbai", "Pune", "Nagpur", "Nashik", "Thane", "Bangalore",
-                "Hyderabad", "Chennai", "Delhi NCR", "Ahmedabad", "Surat", "Indore"
-              ].map((city, idx) => (
-                <li key={city} className={`city-pill city-pill-${idx % 12}`}>
-                  {city}
-                </li>
-              ))}
-            </ul>
+            <div className="scrolling-cities-container">
+              <ul className="city-chips">
+                {[
+                  // Maharashtra
+                  "Mumbai", "Pune", "Nagpur", "Nashik", "Thane", 
+                  // Gujarat
+                  "Ahmedabad", "Surat",
+                  // Karnataka
+                  "Bangalore", 
+                  // Other major cities
+                  "Hyderabad", "Chennai", "Delhi NCR", "Indore"
+                ].flatMap(i => [i, i]).map((city, idx) => (
+                  <li key={idx} className="city-pill">
+                    {city}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
           <div className="cities-cards">
             {[
-              { title: "Day Shift", sub: "8 AM – 8 PM", desc: "Daily hygiene & companionship", icon: "🌅" },
-              { title: "Night Shift", sub: "8 PM – 8 AM", desc: "Overnight monitoring", icon: "🌙" },
-              { title: "24x7 Stay", sub: "Full‑time", desc: "Elderly with critical needs", icon: "⏰" },
-              { title: "Weekend Only", sub: "Custom", desc: "Support for working families", icon: "🗓️" },
-            ].map((c) => (
-              <div key={c.title} className="city-card card">
-                <div className="city-icon" aria-hidden>{c.icon}</div>
-                <div>
-                  <div className="city-title">{c.title}</div>
-                  <div className="city-sub">{c.sub}</div>
-                  <div className="city-desc muted">{c.desc}</div>
-                </div>
+              'https://images.pexels.com/photos/8736350/pexels-photo-8736350.jpeg',
+              'https://images.pexels.com/photos/30313887/pexels-photo-30313887.jpeg',
+              'https://images.pexels.com/photos/5206923/pexels-photo-5206923.jpeg',
+              'https://images.pexels.com/photos/29346161/pexels-photo-29346161.jpeg'
+            ].map((imgUrl, index) => (
+              <div key={index} className="city-card card city-image-card">
+                <img src={imgUrl} alt={`Service image ${index + 1}`} />
               </div>
             ))}
           </div>
