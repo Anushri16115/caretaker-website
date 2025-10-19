@@ -17,7 +17,7 @@ const HeroSection: React.FC = () => {
               We provide experienced and verified caretakers for your loved ones.
               Our services include elderly care, post-operative care, and specialized care for patients with chronic illnesses.
             </p>
-            <a href="/contact" className="cta-button">Contact Us</a>
+            <a href="/patient-intake" className="cta-button">Contact Us</a>
           </div>
         </div>
       </div>

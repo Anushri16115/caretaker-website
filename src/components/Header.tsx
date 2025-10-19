@@ -100,6 +100,7 @@ export default function Header() {
             <MenuGroup title="Services +" items={ServiceBased} />
             <a href="/blog">Blog</a>
             <a href="/physiotherapy">Physiotherapy</a>
+            <a href="/caretaker">Caretaker</a>
             <MenuGroup title="Login" items={LoginBased} />
           </nav>
 
@@ -136,6 +137,7 @@ export default function Header() {
         </details>
         <a href="/blog">Blog</a>
         <a href="/physiotherapy">Physiotherapy</a>
+        <a href="/caretaker">Caretaker</a>
         <details className="nav-item">
           <summary className="nav-summary">Login</summary>
           <div className="dropdown">

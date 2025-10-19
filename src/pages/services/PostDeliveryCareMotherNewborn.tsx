@@ -1,3 +1,5 @@
+import "../../styles/services/PostDeliveryCareMotherNewborn.css";
+
 export default function PostDeliveryCareMotherNewborn() {
   return (
     <div className="post-delivery-care-page">

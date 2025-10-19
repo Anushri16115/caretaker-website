@@ -376,6 +376,8 @@ summary::-webkit-details-marker{display:none}
 
 /* ---- Home sections below hero ---- */
 .section{padding:64px 0}
+
+/* Removing incorrect full-width-slider-section styles */
 .section-title{font-size:3rem;margin:0 0 28px; font-family: var(--font-heading);}
 .section-title.center{text-align:center}
 .accent{color:var(--accent-600)}
@@ -609,7 +611,7 @@ summary::-webkit-details-marker{display:none}
   .service-card-vertical {
     background: #fff;
     border-radius: 12px;
-    padding: 0 8px; /* Add horizontal padding */
+    padding: 16px;
     text-align: center;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     overflow: hidden; /* Ensures the image corners are rounded */
@@ -622,8 +624,9 @@ summary::-webkit-details-marker{display:none}
 
   .service-card-img {
     width: 100%;
-    height: 140px;
+    height: 160px;
     object-fit: cover;
+    border-radius: 8px;
   }
 
   .service-card-title {
@@ -631,6 +634,7 @@ summary::-webkit-details-marker{display:none}
     font-weight: 700;
     padding: 16px 12px;
     margin: 0;
+    margin-bottom: 8px;
   }
 
   .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
@@ -714,19 +718,6 @@ summary::-webkit-details-marker{display:none}
 @media (max-width: 768px) {
   .section {
     padding: 64px 0;
-  }
-
-  .services .container {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  .services .keen-slider {
-    padding-left: 16px; /* Re-apply padding inside the slider */
-  }
-
-  .keen-slider__slide {
-    min-width: 150px; /* Prevent cards from collapsing */
   }
 
   .section-title {
@@ -1154,6 +1145,96 @@ summary::-webkit-details-marker{display:none}
 
 @media (max-width: 600px) {
   .benefits-grid-nc {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 24x7 Care Page Styles */
+
+/* Hero Section */
+.hero-section-c247 {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.hero-overlay-c247 {
+  background: linear-gradient(90deg, rgba(20, 28, 58, 0.9) 0%, rgba(20, 28, 58, 0.5) 100%);
+  padding: 80px 0;
+}
+
+.hero-content-c247 {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.breadcrumb-c247 {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 8px;
+}
+
+.hero-text-c247 h1 {
+  font-size: 3.5rem;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.hero-form-c247 {
+  background: var(--card);
+  padding: 24px;
+  border-radius: var(--radius);
+}
+
+.hero-form-c247 h3 {
+  margin-top: 0;
+  color: var(--text);
+}
+
+/* Support Section */
+.support-grid-c247 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+}
+
+/* Benefits Section */
+.benefits-section-c247 {
+  background: var(--accent-100);
+}
+
+.benefits-grid-c247 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  text-align: center;
+}
+
+.benefit-item-c247 {
+  padding: 20px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-content-c247 {
+    grid-template-columns: 1fr;
+  }
+  .support-grid-c247 {
+    grid-template-columns: 1fr;
+  }
+  .benefits-grid-c247 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .benefits-grid-c247 {
     grid-template-columns: 1fr;
   }
 }
@@ -1837,6 +1918,27 @@ summary::-webkit-details-marker{display:none}
 
 @media (max-width: 600px) {
   .benefits-grid-hc {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Day Care Page Styles */
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-content-dc {
+    grid-template-columns: 1fr;
+  }
+  .services-grid-dc {
+    grid-template-columns: 1fr;
+  }
+  .benefits-grid-dc {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .benefits-grid-dc {
     grid-template-columns: 1fr;
   }
 }

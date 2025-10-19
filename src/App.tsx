@@ -9,6 +9,8 @@ import PatientLogin from "./pages/PatientLogin";
 import CaretakerLogin from "./pages/CaretakerLogin";
 import Blog from "./pages/Blog";
 import Physiotherapy from "./pages/Physiotherapy";
+import Caretaker from "./pages/Caretaker";
+import PatientIntakeForm from "./pages/PatientIntakeForm";
 import "./styles/index.css";
 // Service pages
 import PostSurgeryRecoveryCare from "./pages/services/PostSurgeryRecoveryCare";
@@ -46,6 +48,8 @@ export default function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/physiotherapy" element={<Physiotherapy />} />
+          <Route path="/caretaker" element={<Caretaker />} />
+          <Route path="/patient-intake" element={<PatientIntakeForm />} />
         </Routes>
       </MainLayout>
     </BrowserRouter>

@@ -41,6 +41,7 @@
   display: flex;
   gap: 16px;
   margin-top: 24px;
+  flex-wrap: wrap; /* Allow badges to wrap on smaller screens */
 }
 
 .badge-surgery {
@@ -66,7 +67,7 @@
 .btn-request-callback {
   width: 100%;
   padding: 12px;
-  background: var(--brand-warm);
+  background: var(--accent-600);
   color: white;
   border: none;
   border-radius: 8px;
@@ -157,24 +158,33 @@
   padding: 0 16px 16px 64px;
 }
 
-/* Responsive */
+/* === Responsive Styles === */
+
 @media (max-width: 900px) {
   .hero-content-surgery {
     grid-template-columns: 1fr;
+    text-align: center;
   }
+
+  .hero-text {
+    order: 2; /* Form comes first on mobile */
+  }
+
+  .hero-form-surgery {
+    order: 1;
+    margin-bottom: 2rem;
+  }
+  
+  .badges-surgery {
+    justify-content: center;
+  }
+
   .key-components-section {
     grid-template-columns: 1fr;
+    text-align: center;
   }
-  .key-components-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .benefits-grid-surgery {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
 
-@media (max-width: 600px) {
-  .benefits-grid-surgery {
+  .key-components-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }

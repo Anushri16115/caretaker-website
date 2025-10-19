@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Lenis from '@studio-freight/lenis';
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import FloatingWhatsAppButton from "../components/FloatingWhatsAppButton";
 
 export default function MainLayout({ 
   children,
@@ -28,6 +29,7 @@ export default function MainLayout({
     <div className="app">
       <Header />
       <main className="container full-bleed">{children}</main>
+      <FloatingWhatsAppButton />
       <Footer />
     </div>
   );

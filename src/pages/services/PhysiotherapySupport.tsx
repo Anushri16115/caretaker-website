@@ -1,3 +1,5 @@
+import "../../styles/services/PhysiotherapySupport.css";
+
 export default function PhysiotherapySupport() {
   return (
     <div className="physiotherapy-support-page">

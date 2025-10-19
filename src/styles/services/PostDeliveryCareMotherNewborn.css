@@ -1,0 +1,104 @@
+/* Post-Delivery Care Page Styles */
+
+/* Hero Section */
+.hero-section-pdc {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.hero-overlay-pdc {
+  background: linear-gradient(90deg, rgba(45, 23, 42, 0.9) 0%, rgba(45, 23, 42, 0.5) 100%);
+  padding: 80px 0;
+}
+
+.hero-content-pdc {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.breadcrumb-pdc {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 8px;
+}
+
+.hero-text-pdc h1 {
+  font-size: 3.5rem;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.hero-form-pdc {
+  background: var(--card);
+  padding: 24px;
+  border-radius: var(--radius);
+}
+
+.hero-form-pdc h3 {
+  margin-top: 0;
+  color: var(--text);
+}
+
+/* What We Offer Section */
+.offer-grid-pdc {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.offer-card-pdc {
+  padding: 24px;
+}
+
+.offer-card-pdc h3 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: var(--accent-600);
+}
+
+.offer-card-pdc ul {
+  padding-left: 20px;
+  line-height: 1.8;
+}
+
+/* Benefits Section */
+.benefits-section-pdc {
+  background: var(--accent-100);
+}
+
+.benefits-grid-pdc {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  text-align: center;
+}
+
+.benefit-item-pdc {
+  padding: 20px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-content-pdc {
+    grid-template-columns: 1fr;
+  }
+  .offer-grid-pdc {
+    grid-template-columns: 1fr;
+  }
+  .benefits-grid-pdc {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .benefits-grid-pdc {
+    grid-template-columns: 1fr;
+  }
+}

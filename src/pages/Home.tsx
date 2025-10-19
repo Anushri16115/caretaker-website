@@ -8,6 +8,10 @@ import medicationSupport from '../assets/doctor-nurse/doctor_consultation_03.jpg
 import companionship from '../assets/flat-nurse-helping-patient/2325578.jpg';
 import hygieneCare from '../assets/self-care-concept-with-man-activities/3794815.jpg';
 import mobilityHelp from '../assets/flat-nurse-helping-patient/2325578.jpg'; // Using a duplicate for now
+import service1 from '../assets/WhatsApp Image 2025-10-18 at 1.06.40 PM (1).jpeg';
+import service2 from '../assets/WhatsApp Image 2025-10-18 at 1.06.40 PM (2).jpeg';
+import service3 from '../assets/WhatsApp Image 2025-10-18 at 1.06.40 PM.jpeg';
+import service4 from '../assets/WhatsApp Image 2025-10-18 at 12.48.49 PM.jpeg';
 
 // Define different images for each section
 const whyChooseUsImage = 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop';
@@ -25,16 +29,16 @@ const Home = () => {
       },
       breakpoints: {
         '(max-width: 1024px)': {
-          slides: { perView: 4, spacing: 10 },
+          slides: { perView: 4, spacing: 10, origin: 'auto' },
         },
         '(max-width: 768px)': {
-          slides: { perView: 3, spacing: 10 },
+          slides: { perView: 3, spacing: 10, origin: 'auto' },
         },
         '(max-width: 600px)': {
-          slides: { perView: 2, spacing: 16 },
+          slides: { perView: 2.5, spacing: 16, origin: 'auto' },
         },
         '(max-width: 480px)': {
-          slides: { perView: 1.2, spacing: 16, origin: 'center' },
+          slides: { perView: 2.2, spacing: 16, origin: 'auto' },
         },
       },
     },
@@ -74,25 +78,29 @@ const Home = () => {
       <HeroSection />
 
       {/* Our Services */}
-      <AnimatedSection className="section services">
+      <AnimatedSection className="section services full-width-slider-section">
         <div className="container">
           <h2 className="section-title center">Our Services</h2>
-          <div ref={sliderRef} className="keen-slider">
-            {[
-              { title: "Health Monitoring", img: healthMonitoring },
-              { title: "Medication Support", img: medicationSupport },
-              { title: "Companionship", img: companionship },
-              { title: "Hygiene Care", img: hygieneCare },
-              
-              { title: "Mobility Help", img: mobilityHelp },
-              { title: "Post-Operative Care", img: medicationSupport },
-            ].map((s) => (
-              <div key={s.title} className="keen-slider__slide service-card-vertical card">
-                <img src={s.img} alt={s.title} className="service-card-img" />
-                <h3 className="service-card-title">{s.title}</h3>
-              </div>
-            ))}
-          </div>
+        </div>
+        <div ref={sliderRef} className="keen-slider">
+          {[
+            { title: "Health Monitoring", img: healthMonitoring },
+            { title: "Medication Support", img: medicationSupport },
+            { title: "Companionship", img: companionship },
+            { title: "Hygiene Care", img: hygieneCare },
+            
+            { title: "Mobility Help", img: mobilityHelp },
+            { title: "Post-Operative Care", img: medicationSupport },
+            { title: "Personal Care", img: service1 },
+            { title: "Dementia Care", img: service2 },
+            { title: "Palliative Care", img: service3 },
+            { title: "Respite Care", img: service4 },
+          ].map((s) => (
+            <div key={s.title} className="keen-slider__slide service-card-vertical card">
+              <img src={s.img} alt={s.title} className="service-card-img" />
+              <h3 className="service-card-title">{s.title}</h3>
+            </div>
+          ))}
         </div>
       </AnimatedSection>
 
