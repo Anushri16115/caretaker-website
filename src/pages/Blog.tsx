@@ -12,7 +12,7 @@ const Blog = () => {
           <div className="bg-white rounded-lg shadow-md overflow-hidden">
             <div className="p-6">
               <h2 className="text-xl font-semibold text-gray-800 mb-3">Stay Tuned</h2>
-              <p className="text-gray-600">We're working on some great content for you. Check back soon!</p>
+              <p className="text-gray-600">We're work content for you. Check back soon!</p>
             </div>
           </div>
         </div>
