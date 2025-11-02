@@ -1,5 +1,4 @@
 import React from 'react';
-import HeroForm from './HeroForm';
 import '../styles/HeroSection.css';
 
 const HeroSection: React.FC = () => {
@@ -17,12 +16,9 @@ const HeroSection: React.FC = () => {
               We provide experienced and verified caretakers for your loved ones.
               Our services include elderly care, post-operative care, and specialized care for patients with chronic illnesses.
             </p>
-            <a href="/patient-intake" className="cta-button">Contact Us</a>
+            <a href="tel:+917276526772" className="cta-button">Contact Us</a>
           </div>
         </div>
-      </div>
-      <div className="hero-form-container">
-        <HeroForm />
       </div>
     </div>
   );

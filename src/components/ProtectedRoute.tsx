@@ -1,0 +1,27 @@
+import React from 'react';
+import { Navigate } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../firebase';
+
+interface ProtectedRouteProps {
+  children: React.ReactElement;
+}
+
+const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
+  const [user, loading] = useAuthState(auth);
+
+  if (loading) {
+    // You can add a loading spinner here
+    return <div>Loading...</div>;
+  }
+
+  if (!user) {
+    // User is not authenticated, redirect to login
+    return <Navigate to="/login" />;
+  }
+
+  // User is authenticated, render the child component
+  return children;
+};
+
+export default ProtectedRoute;

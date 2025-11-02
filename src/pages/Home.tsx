@@ -3,6 +3,13 @@ import AnimatedSection from '../components/AnimatedSection';
 import AnimatedLogo from '../components/AnimatedLogo';
 import { useKeenSlider } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
+// Import city images
+import img1 from '../assets/img1.jpeg';
+import img2 from '../assets/img2.jpeg';
+import img3 from '../assets/img3.jpeg';
+import img4 from '../assets/img4.jpeg';
+
+const cityImages = [img1, img2, img3, img4];
 import healthMonitoring from '../assets/doctor-checkup/eldery_treatment_03.jpg';
 import medicationSupport from '../assets/doctor-nurse/doctor_consultation_03.jpg';
 import companionship from '../assets/flat-nurse-helping-patient/2325578.jpg';
@@ -12,6 +19,7 @@ import service1 from '../assets/WhatsApp Image 2025-10-18 at 1.06.40 PM (1).jpeg
 import service2 from '../assets/WhatsApp Image 2025-10-18 at 1.06.40 PM (2).jpeg';
 import service3 from '../assets/WhatsApp Image 2025-10-18 at 1.06.40 PM.jpeg';
 import service4 from '../assets/WhatsApp Image 2025-10-18 at 12.48.49 PM.jpeg';
+import PatientIntakeForm from '../components/ContactForm';
 
 // Define different images for each section
 const whyChooseUsImage = 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop';
@@ -119,7 +127,7 @@ const Home = () => {
               </p>
             </div>
             <div className="why-image">
-              <img src={whyChooseUsImage} alt="A team of dedicated caretakers" />
+              <img src={whyChooseUsImage} alt="A team of dedicated caretakers" className="card" />
             </div>
             <div className="why-col">
               <p>
@@ -127,8 +135,63 @@ const Home = () => {
               </p>
             </div>
           </div>
+        </div>
+      </AnimatedSection>
 
+      {/* Contact Form Section */}
+      <AnimatedSection className="section contact-form-section">
+        <h2 className="section-title center">Get in Touch</h2>
+        <p className="section-subtitle center">Please fill out the details below. Our care manager will call you shortly.</p>
+        <PatientIntakeForm />
+      </AnimatedSection>
+
+      {/* Blog Section */}
+      <AnimatedSection className="section blog-section">
+        <div className="container">
+          <h2 className="section-title center">Latest from Our Blog</h2>
+          <p className="section-subtitle center">Stay updated with our latest insights and stories.</p>
           
+          <div className="blog-grid">
+            {/* Blog Post 1 */}
+            <div className="blog-card card">
+              <div className="blog-image">
+                <img src="https://images.pexels.com/photos/4173239/pexels-photo-4173239.jpeg" alt="Elderly Care Tips" loading="lazy" />
+              </div>
+              <div className="blog-content">
+                <h3>5 Essential Tips for Elderly Care at Home</h3>
+                <p className="blog-excerpt">Discover practical tips to provide the best care for your elderly loved ones in the comfort of their home.</p>
+                <a href="/blog/elderly-care-tips" className="read-more">Read More →</a>
+              </div>
+            </div>
+
+            {/* Blog Post 2 */}
+            <div className="blog-card card">
+              <div className="blog-image">
+                <img src="https://images.pexels.com/photos/3768131/pexels-photo-3768131.jpeg" alt="Post-Surgery Care" loading="lazy" />
+              </div>
+              <div className="blog-content">
+                <h3>Post-Surgery Recovery: A Complete Guide</h3>
+                <p className="blog-excerpt">Learn how to ensure a smooth and comfortable recovery process after surgery with our comprehensive guide.</p>
+                <a href="/blog/post-surgery-recovery" className="read-more">Read More →</a>
+              </div>
+            </div>
+
+            {/* Blog Post 3 */}
+            <div className="blog-card card">
+              <div className="blog-image">
+                <img src="https://images.pexels.com/photos/3786215/pexels-photo-3786215.jpeg" alt="Caregiver Support" loading="lazy" />
+              </div>
+              <div className="blog-content">
+                <h3>How to Support Your Caregiver</h3>
+                <p className="blog-excerpt">A happy caregiver means better care. Here's how you can support those who care for your loved ones.</p>
+                <a href="/blog/supporting-caregivers" className="read-more">Read More →</a>
+              </div>
+            </div>
+          </div>
+          
+          <div className="text-center mt-8">
+            <a href="/blog" className="btn btn-primary">View All Articles</a>
+          </div>
         </div>
       </AnimatedSection>
 
@@ -205,14 +268,17 @@ const Home = () => {
             </div>
           </div>
           <div className="cities-cards">
-            {[
-              'https://images.pexels.com/photos/8736350/pexels-photo-8736350.jpeg',
-              'https://images.pexels.com/photos/30313887/pexels-photo-30313887.jpeg',
-              'https://images.pexels.com/photos/5206923/pexels-photo-5206923.jpeg',
-              'https://images.pexels.com/photos/29346161/pexels-photo-29346161.jpeg'
-            ].map((imgUrl, index) => (
-              <div key={index} className="city-card card city-image-card">
-                <img src={imgUrl} alt={`Service image ${index + 1}`} />
+            {cityImages.map((imgSrc, index) => (
+              <div key={index} className="city-card">
+                <img 
+                  src={imgSrc} 
+                  alt={`City service ${index + 1}`} 
+                  className="city-image"
+                  onError={(e) => {
+                    // Fallback in case image fails to load
+                    e.currentTarget.src = '/placeholder-image.png';
+                  }}
+                />
               </div>
             ))}
           </div>
@@ -241,6 +307,8 @@ const Home = () => {
           </div>
         </div>
       </AnimatedSection>
+
+
 
       {/* CTA Banner */}
       <AnimatedSection className="section cta-banner" aria-label="Contact CTA" style={{

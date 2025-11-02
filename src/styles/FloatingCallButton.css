@@ -1,0 +1,24 @@
+.floating-call-btn {
+  position: fixed;
+  bottom: 7rem; /* Adjusted to be above the WhatsApp button */
+  right: 2rem;
+  width: 60px;
+  height: 60px;
+  background-color: #007bff; /* A standard blue for phone calls */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.floating-call-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.call-icon {
+  color: white;
+}

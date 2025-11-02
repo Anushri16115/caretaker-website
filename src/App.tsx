@@ -1,16 +1,19 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
+import FloatingWhatsAppButton from './components/FloatingWhatsAppButton';
+import FloatingCallButton from './components/FloatingCallButton';
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import Register from "./pages/Register";
-import PatientLogin from "./pages/PatientLogin";
-import CaretakerLogin from "./pages/CaretakerLogin";
+import Login from "./pages/Login";
 import Blog from "./pages/Blog";
 import Physiotherapy from "./pages/Physiotherapy";
 import Caretaker from "./pages/Caretaker";
-import PatientIntakeForm from "./pages/PatientIntakeForm";
+import PatientDashboard from "./pages/PatientDashboard";
+import CaretakerDashboard from "./pages/CaretakerDashboard";
+import ProtectedRoute from "./components/ProtectedRoute";
 import "./styles/index.css";
 // Service pages
 import PostSurgeryRecoveryCare from "./pages/services/PostSurgeryRecoveryCare";
@@ -27,6 +30,8 @@ import HospiceCare from "./pages/services/HospiceCare";
 export default function App() {
   return (
     <BrowserRouter>
+      <FloatingWhatsAppButton />
+      <FloatingCallButton />
       <MainLayout>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -43,13 +48,13 @@ export default function App() {
           <Route path="/services/palliative-care" element={<PalliativeCare />} />
           <Route path="/services/hospice-care" element={<HospiceCare />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/login/patient" element={<PatientLogin />} />
-          <Route path="/login/caretaker" element={<CaretakerLogin />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/physiotherapy" element={<Physiotherapy />} />
           <Route path="/caretaker" element={<Caretaker />} />
-          <Route path="/patient-intake" element={<PatientIntakeForm />} />
+          <Route path="/patient-dashboard" element={<ProtectedRoute><PatientDashboard /></ProtectedRoute>} />
+          <Route path="/caretaker-dashboard" element={<ProtectedRoute><CaretakerDashboard /></ProtectedRoute>} />
         </Routes>
       </MainLayout>
     </BrowserRouter>

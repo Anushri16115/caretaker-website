@@ -3,10 +3,6 @@ import { useState } from "react";
 
 type MenuItem = string | { label: string; href: string };
 
-const LoginBased: MenuItem[] = [
-  { label: "Patient Login", href: "/login/patient" },
-  { label: "Caretaker Login", href: "/login/caretaker" },
-];
 
 const ServiceBased: MenuItem[] = [
   { label: "Post-Surgery Recovery Care", href: "/services/post-surgery-recovery-care" },
@@ -101,7 +97,7 @@ export default function Header() {
             <a href="/blog">Blog</a>
             <a href="/physiotherapy">Physiotherapy</a>
             <a href="/caretaker">Caretaker</a>
-            <MenuGroup title="Login" items={LoginBased} />
+            <a href="/login">Login</a>
           </nav>
 
           {/* CTA right */}
@@ -138,22 +134,7 @@ export default function Header() {
         <a href="/blog">Blog</a>
         <a href="/physiotherapy">Physiotherapy</a>
         <a href="/caretaker">Caretaker</a>
-        <details className="nav-item">
-          <summary className="nav-summary">Login</summary>
-          <div className="dropdown">
-            <ul>
-              {LoginBased.map((it) => {
-                const label = typeof it === "string" ? it : it.label;
-                const href = typeof it === "string" ? "#" : it.href;
-                return (
-                  <li key={label}>
-                    <a href={href}>{label}</a>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        </details>
+        <a href="/login">Login</a>
       </nav>
     </>
   );
