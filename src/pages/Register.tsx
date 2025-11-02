@@ -11,7 +11,7 @@ export default function Register() {
   const navigate = useNavigate();
 
 
-  const handleSuccessfulRegistration = (user: any) => {
+  const handleSuccessfulRegistration = () => {
     if (userType === 'patient') {
       navigate('/patient-dashboard');
     } else {
@@ -30,7 +30,7 @@ export default function Register() {
         role: userType,
       });
       alert(`Successfully created a ${userType} account!`);
-      handleSuccessfulRegistration(user);
+      handleSuccessfulRegistration();
     } catch (error: any) {
       console.error('Error signing up:', error);
       alert(`Failed to create an account: ${error.message}`);
@@ -48,7 +48,7 @@ export default function Register() {
         role: userType,
       });
       alert(`Successfully created a ${userType} account with Google!`);
-      handleSuccessfulRegistration(user);
+      handleSuccessfulRegistration();
     } catch (error) {
       console.error('Error signing up with Google:', error);
       alert('Failed to sign up with Google. Please try again.');
