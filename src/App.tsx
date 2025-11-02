@@ -8,7 +8,6 @@ import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
-import Blog from "./pages/Blog";
 import Physiotherapy from "./pages/Physiotherapy";
 import Caretaker from "./pages/Caretaker";
 import PatientDashboard from "./pages/PatientDashboard";
@@ -50,7 +49,6 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/blog" element={<Blog />} />
           <Route path="/physiotherapy" element={<Physiotherapy />} />
           <Route path="/caretaker" element={<Caretaker />} />
           <Route path="/patient-dashboard" element={<ProtectedRoute><PatientDashboard /></ProtectedRoute>} />
