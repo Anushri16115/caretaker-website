@@ -1,0 +1,19 @@
+{
+  "name": "Abhiruchi Caretaker",
+  "short_name": "Abhiruchi",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/logo.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "theme_color": "#818cf8",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}
