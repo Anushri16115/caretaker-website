@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
             <p>No 2, Mayur Niwas, 172 Shrikant LodgeFlat, 169/A, Dr Babasaheb Ambedkar Rd, Dadar TT, Dadar East, Punewadi, Mumbai, Maharashtra 400014</p>
             <p>
               <strong>Phone:</strong> <a href="tel:+917276526772">+91 7276526772</a><br />
-              <strong>Email:</strong> <a href="mailto:info@abhiruchicaretaker.com">info@abhiruchicaretaker.com</a>
+              <strong>Email:</strong> <a href="mailto:support@caretakernearme.in">support@caretakernearme.in</a>
             </p>
           </div>
           <div className="footer-col footer-links">
@@ -34,7 +34,16 @@ const Footer: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className="footer-map-section">
+        <div
+          className="footer-map-section"
+          role="link"
+          aria-label="Open location in Google Maps"
+          title="Open in Google Maps"
+          onClick={() => window.open('https://maps.app.goo.gl/gabg4A9h11SbSJyc7?g_st=awb', '_blank', 'noopener,noreferrer')}
+          tabIndex={0}
+          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); window.open('https://maps.app.goo.gl/gabg4A9h11SbSJyc7?g_st=awb', '_blank', 'noopener,noreferrer'); } }}
+          style={{ cursor: 'pointer' }}
+        >
           <iframe 
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.559742488328!2d73.91441407425935!3d18.5037206694906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c11843049189%3A0x24c1e0df52c4a35a!2sSiddhivinayak%20Care%20Takers%20bureau%20Hadapsar!5e0!3m2!1sen!2sin!4v1678886458972!5m2!1sen!2sin"
             width="100%" 
@@ -47,7 +56,7 @@ const Footer: React.FC = () => {
         </div>
       </div>
       <div className="footer-bottom">
-        <p>© {new Date().getFullYear()} Abhiruchi Caretaker. All Rights Reserved.</p>
+        <p> {new Date().getFullYear()} Abhiruchi Caretaker. All Rights Reserved.</p>
       </div>
     </footer>
   );

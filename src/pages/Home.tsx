@@ -209,11 +209,11 @@ const Home = () => {
           <div className="testimonials-cards">
             {[
               {
-                name: "Abhinav T.",
+                name: "pooja",
                 city: "Delhi",
                 text:
                   "Finding a reliable caretaker for my father was a stressful process until I found Abhiruchi. Their team was professional, compassionate, and incredibly supportive. The care has been exceptional.",
-                avatar: "https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?q=80&w=2080&auto=format&fit=crop",
+                avatar: "https://images.pexels.com/photos/1181293/pexels-photo-1181293.jpeg",
               },
               {
                 name: "Rahul B.",

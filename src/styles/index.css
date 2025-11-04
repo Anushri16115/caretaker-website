@@ -89,6 +89,7 @@ body {
 .brand{font-weight:800;color:var(--accent);font-size:1.125rem;text-decoration:none;padding-left:4px}
 .logo-wrap{display:flex;align-items:center;min-width:180px}
 .logo-mark{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent-600), var(--accent));color:white;font-weight:800;margin-right:10px;flex:0 0 44px}
+.logo-img{width:44px;height:44px;border-radius:10px;object-fit:cover;margin-right:10px;flex:0 0 44px;display:inline-block}
 .brand-text{font-size:1.05rem;color:var(--accent)}
 .right-group{display:flex;align-items:center;gap:18px;margin-left:auto}
 .app-header nav a{margin-left:14px;color:var(--text);text-decoration:none;font-weight:600}

@@ -51,7 +51,7 @@ export default function Header() {
             <div className="topbar-left">
               <a href="tel:+917276526772" className="topbar-link">+91 7276526772</a>
               <span className="topbar-sep">|</span>
-              <a href="mailto:info@abhiruchicaretaker.com" className="topbar-link">info@abhiruchicaretaker.com</a>
+              <a href="mailto:support@caretakernearme.in" className="topbar-link">support@caretakernearme.in</a>
             </div>
             <div className="topbar-right">
               <span className="follow-label">Follow Us :-</span>

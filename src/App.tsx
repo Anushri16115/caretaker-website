@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import MainLayout from "./layouts/MainLayout";
 import FloatingWhatsAppButton from './components/FloatingWhatsAppButton';
 import FloatingCallButton from './components/FloatingCallButton';
@@ -26,9 +27,42 @@ import InjectionDripCare from "./pages/services/InjectionDripCare";
 import PalliativeCare from "./pages/services/PalliativeCare";
 import HospiceCare from "./pages/services/HospiceCare";
 
+function TitleUpdater() {
+  const location = useLocation();
+  useEffect(() => {
+    const base = "Abhiruchi Caretaker";
+    const path = location.pathname;
+
+    const map: Record<string, string> = {
+      "/": `${base}` ,
+      "/about": `About Us | ${base}`,
+      "/services": `Services | ${base}`,
+      "/contact": `Contact | ${base}`,
+      "/login": `Login | ${base}`,
+      "/register": `Register | ${base}`,
+      "/physiotherapy": `Physiotherapy | ${base}`,
+      "/caretaker": `Caretaker | ${base}`,
+      "/patient-dashboard": `Patient Dashboard | ${base}`,
+      "/caretaker-dashboard": `Caretaker Dashboard | ${base}`,
+    };
+
+    let title = map[path];
+    if (!title && path.startsWith("/services/")) {
+      const seg = path.split("/").pop() || "Service";
+      const pretty = seg
+        .replace(/-/g, " ")
+        .replace(/\b\w/g, (m) => m.toUpperCase());
+      title = `${pretty} | ${base}`;
+    }
+    document.title = title || base;
+  }, [location.pathname]);
+  return null;
+}
+
 export default function App() {
   return (
     <BrowserRouter>
+      <TitleUpdater />
       <FloatingWhatsAppButton />
       <FloatingCallButton />
       <MainLayout>
@@ -48,7 +82,7 @@ export default function App() {
           <Route path="/services/hospice-care" element={<HospiceCare />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/register" element={<Register />} />    
           <Route path="/physiotherapy" element={<Physiotherapy />} />
           <Route path="/caretaker" element={<Caretaker />} />
           <Route path="/patient-dashboard" element={<ProtectedRoute><PatientDashboard /></ProtectedRoute>} />
