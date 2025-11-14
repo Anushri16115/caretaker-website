@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
+import { signInWithEmailAndPassword, signInWithPopup, signInWithRedirect, getRedirectResult } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
 import { auth, db, googleProvider } from '../firebase';
 
@@ -30,6 +30,11 @@ export default function Login() {
 
   const handleGoogleSignIn = async () => {
     try {
+      const isMobile = typeof navigator !== 'undefined' && /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+      if (isMobile) {
+        await signInWithRedirect(auth, googleProvider);
+        return;
+      }
       const result = await signInWithPopup(auth, googleProvider);
       await handleSuccessfulLogin(result.user);
     } catch (error) {
@@ -37,6 +42,19 @@ export default function Login() {
       alert('Failed to sign in with Google.');
     }
   };
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const result = await getRedirectResult(auth);
+        if (result && result.user) {
+          await handleSuccessfulLogin(result.user);
+        }
+      } catch (error) {
+        console.error('Error completing Google redirect sign-in:', error);
+      }
+    })();
+  }, []);
 
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();

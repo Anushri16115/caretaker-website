@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { createUserWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithPopup, signInWithRedirect, getRedirectResult } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import { auth, db, googleProvider } from '../firebase';
 
@@ -37,16 +37,25 @@ export default function Register() {
     }
   };
 
+  const persistUserRole = async (user: any) => {
+    await setDoc(doc(db, "users", user.uid), {
+      uid: user.uid,
+      email: user.email,
+      role: userType,
+    });
+  };
+
   const handleGoogleSignUp = async () => {
     try {
+      const isMobile = typeof navigator !== 'undefined' && /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+      if (isMobile) {
+        try { localStorage.setItem('registerUserType', userType); } catch {}
+        await signInWithRedirect(auth, googleProvider);
+        return;
+      }
       const result = await signInWithPopup(auth, googleProvider);
       const user = result.user;
-      // Save user role to Firestore
-      await setDoc(doc(db, "users", user.uid), {
-        uid: user.uid,
-        email: user.email,
-        role: userType,
-      });
+      await persistUserRole(user);
       alert(`Successfully created a ${userType} account with Google!`);
       handleSuccessfulRegistration();
     } catch (error) {
@@ -54,6 +63,36 @@ export default function Register() {
       alert('Failed to sign up with Google. Please try again.');
     }
   };
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const result = await getRedirectResult(auth);
+        if (result && result.user) {
+          let persistedType = userType;
+          try {
+            const stored = localStorage.getItem('registerUserType');
+            if (stored === 'patient' || stored === 'caretaker') {
+              persistedType = stored;
+              setUserType(stored);
+            }
+          } catch {}
+          await setDoc(doc(db, "users", result.user.uid), {
+            uid: result.user.uid,
+            email: result.user.email,
+            role: persistedType,
+          });
+          alert(`Successfully created a ${persistedType} account with Google!`);
+          handleSuccessfulRegistration();
+        }
+      } catch (error) {
+        // It's okay if there was no redirect result
+        if (process.env.NODE_ENV === 'development') {
+          console.debug('No Google redirect result or error:', error);
+        }
+      }
+    })();
+  }, []);
 
   return (
     <div className="login-container">

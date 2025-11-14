@@ -94,7 +94,6 @@ export default function Header() {
             <a href="/">Home</a>
             <a href="/about">About Us</a>
             <MenuGroup title="Services +" items={ServiceBased} />
-            <a href="/blog">Blog</a>
             <a href="/physiotherapy">Physiotherapy</a>
             <a href="/caretaker">Caretaker</a>
             <a href="/login">Login</a>
