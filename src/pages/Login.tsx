@@ -30,21 +30,16 @@ export default function Login() {
 
   const handleGoogleSignIn = async () => {
     try {
-      const isMobile = typeof navigator !== 'undefined' && /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-      if (isMobile) {
-        await signInWithRedirect(auth, googleProvider);
-        return;
-      }
-      const result = await signInWithPopup(auth, googleProvider);
-      await handleSuccessfulLogin(result.user);
+      // Always use redirect for consistent behavior across devices
+      await signInWithRedirect(auth, googleProvider);
     } catch (error) {
       console.error('Error signing in with Google:', error);
-      alert('Failed to sign in with Google.');
+      alert('Failed to sign in with Google. Please try again.');
     }
   };
 
   useEffect(() => {
-    (async () => {
+    const handleRedirectResult = async () => {
       try {
         const result = await getRedirectResult(auth);
         if (result && result.user) {
@@ -52,9 +47,15 @@ export default function Login() {
         }
       } catch (error) {
         console.error('Error completing Google redirect sign-in:', error);
+        alert('Failed to complete Google sign-in. Please try again.');
       }
-    })();
-  }, []);
+    };
+
+    handleRedirectResult();
+    
+    // Cleanup function
+    return () => {};
+  }, [navigate]);
 
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
